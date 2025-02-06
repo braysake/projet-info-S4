@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title> Mouette </title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+
+<body>
+	<header>
+		<h1>les echecs</h1>
+		<nav>
+			<table style="margin: 0px auto;" id="bloc-menu">
+			<tr>
+				<th> <a href="index.html">accueil</a> </th>
+				<th> <a href="presentation.html">presentation</a> </th>
+				<th> <a href="inscription.html">sign up</a> </th>
+				<th> <a href="connexion.html">sign in</a> </th>
+			</tr>
+			</table>
+			<br>
+		</nav>
+	</header>
+
+	<section id="connexion">
+		<h2>Connexion</h2>
+		<form method="post" action="traitement.php">
+			<p>
+				<label for="mail">mail :</label>
+				<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
+			</p>
+
+			<p>
+				<label for="password">Mot de passe :</label>
+				<input type="password" name="password" id="mot_de_passe" required/>
+			</p>
+
+			<p>
+				<span id="message"></span>
+				<input type="reset" value="The Great Reset !" />
+				<input type="submit" id="bouton" value="Créer le compte !" />
+			</p>
+	</section>	
+		</form>
+
+	<footer>
+		<p> Site exemple réalisé par un professionnel, ne faites pas ça chez vous.
+	</footer>
+
+</body>
+
+</html>
+
+<script src="script.js"></script>

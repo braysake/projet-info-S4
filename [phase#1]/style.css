@@ -1,0 +1,59 @@
+:root{
+	--color_1: #fff;
+	--color_2: #000;
+    --color_3: #299da3;
+    --color_4: #FFF25A;
+	--color_5: #FFC853;
+	--color_7: #009600;
+}
+
+body {
+	background-color: var(--color_3);
+	color : var(--color_1);
+	text-align: left;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1em;
+}
+
+img {
+	float: center;
+}
+
+th { width: 200px;}
+
+ul { list-style-type: square; }
+
+a {
+  color: var(--color_4);
+}
+
+a:visited {
+	color: var(--color_5);
+  }
+
+table, th, td {
+	background-color: var(--color_7);
+	color: var(--color_2);
+	border: 1px solid var(--color_2);
+	border-collapse: collapse;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+	color: rgb(225,225,0)
+}
+
+h2{
+	text-align: center;
+	color: rgb(210,210,0)
+}
+
+h3{
+	text-align: center;
+	color: rgb(175,175,0)
+}
+
+footer{
+	font-size: 0.8em;
+}
