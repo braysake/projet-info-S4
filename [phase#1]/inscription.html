@@ -9,17 +9,24 @@
 
 <body>
 	<header>
-		<h1>les echecs</h1>
+		<h1> CY lands </h1>
+		<img src="logo.png" id="logo" alt="logo" ; width="60%" />
 		<nav>
-			<table style="margin: 0px auto;" id="bloc-menu">
-				<tr>
-					<th> <a href="index.html">accueil</a> </th>
-					<th> <a href="presentation.html">presentation</a> </th>
-					<th> <a href="inscription.html">sign up</a> </th>
-					<th> <a href="connexion.html">sign in</a> </th>
-				</tr>
-			</table>
-			<br>
+			<ul>
+				<!-- Menu déroulant pour l'accueil -->
+				<li><a href="index.html">accueil</a></li>
+
+				<li class="deroulant">
+					<a href="presentation.html">presentation</a>
+					<ul class="sous">
+						<li><a href="presentation.html#présentation">design</a></li>
+						<li><a href="presentation.html#qui">qui somme nous</a></li>
+						<li><a href="presentation.html#recherche">faire une recherche</a></li>
+					</ul>
+				</li>
+				<li><a href="inscription.html">sign up</a></li>
+				<li><a href="connexion.html">sign in</a></li>
+			</ul>
 		</nav>
 	</header>
 

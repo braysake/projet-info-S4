@@ -26,10 +26,11 @@ ul { list-style-type: square; }
 a {
   color: var(--color_4);
 }
-
+/*
 a:visited {
 	color: var(--color_5);
   }
+*/
 
 table, th, td {
 	background-color: var(--color_7);
@@ -57,3 +58,69 @@ h3{
 footer{
 	font-size: 0.8em;
 }
+
+/*menu déroulant*/
+nav {
+	width: 100%;
+	margin: 0 auto;
+	background-color: var(--color_1);
+	transition: top 0.5s;
+}
+nav ul {
+	list-style-type: none;
+}
+nav ul li {
+	width: 25%;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+nav ul::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+nav a {
+	display: block;
+	text-decoration: none;
+	color: var(--color_5);
+	border-bottom: 2px solid transparent;
+	padding: 10px 0px;
+	line-height: 40px; /* Ajuste cette valeur pour correspondre à la hauteur de l'élément */
+}
+nav a:hover {
+	color: var(--color_2);
+	border-bottom: 2px solid var(--color_2);
+}
+
+.sous {
+	display: none;
+	background-color: var(--color_1);
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+}
+nav > ul li:hover .sous {
+	display: block;
+}
+.sous li {
+	float: none;
+	width: 100%;
+	text-align: left;
+}
+.sous a {
+	padding: 10px;
+	border-bottom: none;
+}
+.sous a:hover {
+	border-bottom: none;
+	background-color: RGBa(200, 200, 200, 0.1);
+}
+.deroulant > a::after {
+	content: " ▼";
+	font-size: 12px;
+}
+.deroulant:hover > a::after {
+	content: " ▲";
+}
+/*fin menu déroulant*/
