@@ -2,17 +2,22 @@
 	--color_1: #fff;
 	--color_2: #000;
     --color_3: #299da3;
-    --color_4: #FFF25A;
+    --color_4: #5a562d;
 	--color_5: #FFC853;
 	--color_7: #009600;
 }
 
+
 body {
-	background-color: var(--color_3);
-	color : var(--color_1);
+	background-color: var(--color_1);
+	color : var(--color_2);
 	text-align: left;
 	font-family: "Noto Sans", sans-serif;
 	font-size: 1em;
+}
+
+header{
+	background-color: var(--color_5);
 }
 
 img {
@@ -42,7 +47,7 @@ table, th, td {
 
 h1{
 	text-align: center;
-	color: rgb(225,225,0)
+	color: var(--color_2)
 }
 
 h2{
@@ -63,14 +68,14 @@ footer{
 nav {
 	width: 100%;
 	margin: 0 auto;
-	background-color: var(--color_1);
+	background-color: var(--color_3);
 	transition: top 0.5s;
 }
 nav ul {
 	list-style-type: none;
 }
 nav ul li {
-	width: 25%;
+	width: 16.6%;
 	float: left;
 	text-align: center;
 	position: relative;
@@ -83,7 +88,7 @@ nav ul::after {
 nav a {
 	display: block;
 	text-decoration: none;
-	color: var(--color_5);
+	color: var(--color_2);
 	border-bottom: 2px solid transparent;
 	padding: 10px 0px;
 	line-height: 40px; /* Ajuste cette valeur pour correspondre à la hauteur de l'élément */
@@ -123,4 +128,18 @@ nav > ul li:hover .sous {
 .deroulant:hover > a::after {
 	content: " ▲";
 }
+
+
 /*fin menu déroulant*/
+
+section section{
+	display: po;
+}
+
+section.accueil p {
+	width: 97%;
+	font-size: large;
+	border-radius: 25px;
+	padding: 20px;
+	background-color: var(--color_3);
+}
