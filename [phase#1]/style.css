@@ -20,13 +20,21 @@ header{
 	background-color: var(--color_5);
 }
 
-img {
-	float: center;
+img.logo {
+	width: 125px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	margin-right: 0px;
 }
 
-th { width: 200px;}
+th {
+	width: 200px;
+}
 
-ul { list-style-type: square; }
+ul { 
+	list-style-type: square;
+}
 
 a {
   color: var(--color_4);
@@ -47,7 +55,9 @@ table, th, td {
 
 h1{
 	text-align: center;
-	color: var(--color_2)
+	color: var(--color_2);
+	margin-top: 0px;
+	margin-left: 0px;
 }
 
 h2{
