@@ -138,9 +138,8 @@ nav > ul li:hover .sous {
 .deroulant:hover > a::after {
 	content: " ▲";
 }
-
-
 /*fin menu déroulant*/
+
 
 section section{
 	display: po;

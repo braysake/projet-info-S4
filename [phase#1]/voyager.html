@@ -9,7 +9,7 @@
 
 <body>
 	<header>
-		<img src="logo cy sland.png" class="logo" id="logo" alt="logo" ; width="60%" />
+		<img src="image/logo cy sland.png" class="logo" id="logo" alt="logo" ; width="60%" />
 		<h1> CY lands </h1>
 		<nav>
 			<ul>
@@ -31,21 +31,75 @@
 		</nav>
 	</header>
 
-	<main>		
+	<main>
 		<section>
 		<h1> Voyages </h1>
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
-		<ul>
-            <li>
-                Voyage 1
-            </li>
-            <li>
-                Voyage2
-            </li>
-            <li>
-                <a href=""></a>Voyage 3
-            </li>
-        </ul>
+
+		<!--a revoir
+			1) la section filtre recherche dois être invisible avant que l'on clique sur le bouton
+			2) le css
+			
+			3) le champs de recherche dois s'update lors de l'appui touche "entrée"
+		-->
+		<h2>recherche:</h2>
+		<input type="search"/>
+
+		<button>mes préférence</button>
+
+		<section id="filtre_recherche">
+			<form method="post" action="traitement.php">
+				<p>
+					<label for="prix">prix :</label>
+					<input type="range" min="0" max="300 000"/>
+				</p>
+	
+				<p>
+					<label for="durée_sejour">durée du séjour:</label>
+					<input type="range" min="0" max="30" />
+				</p>
+	
+				<!--a voire select VS checkbox (PHP???) -->
+				<p>
+					<label for="ville_séjour">ville d'intérêt:</label>
+					<select multiple="oui">
+							<option> France </option>
+							<option> Allemagne </option>
+							<option> Belgique </option>
+							<option> Chine </option>
+							<option> Etat-Unis </option>
+							<option> Grand-Bretagne </option>
+							<option> Italie </option>
+							<option> Japon </option>
+							<option> Mexique </option>
+							<option> Russie </option>
+					</select>
+				</p>
+
+				<p>
+					<span id="message"></span>
+					<input type="submit" id="bouton" value="appliquer les filtres" />
+				</p>
+		</section>
+
+		<section>
+			<h2>consulter la carte</h2>
+			<img src="image/Capture d’écran du 2025-02-13 13-34-07.png" alt="map">
+		</section>
+
+		<section>
+			<h2>nos voyages</h2>
+			<ul>
+				<li>
+					Voyage 1
+				</li>
+				<li>
+					Voyage2
+				</li>
+				<li>
+					<a href=""></a>Voyage 3
+				</li>
+			</ul>
         </section>
 	</main>
 
