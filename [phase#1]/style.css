@@ -140,6 +140,21 @@ nav > ul li:hover .sous {
 }
 /*fin menu déroulant*/
 
+/*menu recherche*/
+
+#recherche{
+	background-color: gray;
+	border-radius: 10px;
+	padding: 10px;
+}
+/*
+#recherche form input{
+	width: 80%;
+}*/
+
+/*fin du menu recherche*/
+
+
 
 section section{
 	display: po;
