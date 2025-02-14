@@ -1,0 +1,173 @@
+:root{
+	--color_1: #fff;
+	--color_2: #000;
+    --color_3: #299da3;
+    --color_4: #5a562d;
+	--color_5: #FFC853;
+	--color_7: #009600;
+}
+
+
+body {
+	background-color: var(--color_1);
+	color : var(--color_2);
+	text-align: left;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1em;
+}
+
+header{
+	background-color: var(--color_5);
+}
+
+img.logo {
+	width: 125px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+}
+
+th {
+	width: 200px;
+}
+
+ul { 
+	list-style-type: square;
+}
+
+a {
+  color: var(--color_4);
+}
+/*
+a:visited {
+	color: var(--color_5);
+  }
+*/
+
+table, th, td {
+	background-color: var(--color_7);
+	color: var(--color_2);
+	border: 1px solid var(--color_2);
+	border-collapse: collapse;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+	color: var(--color_2);
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+h2{
+	text-align: center;
+	color: rgb(210,210,0)
+}
+
+h3{
+	text-align: center;
+	color: rgb(175,175,0)
+}
+
+footer{
+	font-size: 0.8em;
+}
+
+/*menu déroulant*/
+nav {
+	width: 100%;
+	margin: 0 auto;
+	background-color: var(--color_3);
+	transition: top 0.5s;
+}
+nav ul {
+	list-style-type: none;
+}
+nav ul li {
+	width: 16.6%;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+nav ul::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+nav a {
+	display: block;
+	text-decoration: none;
+	color: var(--color_2);
+	border-bottom: 2px solid transparent;
+	padding: 10px 0px;
+	line-height: 40px; /* Ajuste cette valeur pour correspondre à la hauteur de l'élément */
+}
+nav a:hover {
+	color: var(--color_2);
+	border-bottom: 2px solid var(--color_2);
+}
+
+.sous {
+	display: none;
+	background-color: var(--color_1);
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+}
+nav > ul li:hover .sous {
+	display: block;
+}
+.sous li {
+	float: none;
+	width: 100%;
+	text-align: left;
+}
+.sous a {
+	padding: 10px;
+	border-bottom: none;
+}
+.sous a:hover {
+	border-bottom: none;
+	background-color: RGBa(200, 200, 200, 0.1);
+}
+.deroulant > a::after {
+	content: " ▼";
+	font-size: 12px;
+}
+.deroulant:hover > a::after {
+	content: " ▲";
+}
+/*fin menu déroulant*/
+
+/*menu recherche*/
+
+#recherche{
+	background-color: gray;
+	border-radius: 10px;
+	padding: 10px;
+}
+/*
+#recherche form input{
+	width: 80%;
+}*/
+
+/*fin du menu recherche*/
+
+
+
+section section{
+	display: po;
+}
+
+section.accueil p {
+	width: 97%;
+	font-size: large;
+	border-radius: 25px;
+	padding: 20px;
+	background-color: var(--color_3);
+}
+
+section.critèrelogement p label{
+	display: inline-block;
+}
