@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-	<title> CY sland </title>
+	<title> Cy sland </title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
@@ -30,34 +30,12 @@
 			</ul>
 		</nav>
 	</header>
-
-	<section id="connexion">
-		<h2>Connexion</h2>
-		<form method="post" action="traitement.php">
-			<p>
-				<label for="mail">mail :</label>
-				<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
-			</p>
-
-			<p>
-				<label for="password">Mot de passe :</label>
-				<input type="password" name="password" id="mot_de_passe" required/>
-			</p>
-
-			<p>
-				<span id="message"></span>
-				<input type="reset" value="The Great Reset !" />
-				<input type="submit" id="bouton" value="Créer le compte !" />
-			</p>
-	</section>	
-		</form>
-
-	<footer>
-		<p> Site exemple réalisé par un professionnel, ne faites pas ça chez vous.
-	</footer>
-
-</body>
-
-</html>
-
-<script src="script.js"></script>
+    <section>
+        <form id="adminconfirm" method="post" action="traitement.php">
+            <input id="codeadmin" type="search" placeholder="Intrue?"/>
+            <button>
+                <input type="submit" id="bouton" value="enter admin side">
+            </button>
+        </form>
+        <button><a href="admin.html">bouton temporaire</a></button>
+    </section>

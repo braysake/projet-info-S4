@@ -2,7 +2,7 @@
 <html lang="fr"> <!--commentaires -->
 
 <head>
-	<title> CY lands </title>
+	<title> CY slands </title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
@@ -60,7 +60,33 @@
 						<label for="durée_sejour">durée du séjour:</label>
 						<input type="range" min="0" max="30" />
 					</p>
-		
+					<br>
+					<section classe="critèrelogement">
+						<h4>Critère de logement:</h4>
+						<p>
+							<label for="critère de logement">qualité de logement</label>
+							<select name="qualité" id="qualité">
+								<option value="n'importe">N'importe</option>
+								<option value="1 étoile">1 étoile</option>
+								<option value="2 étoile">2 étoiles</option>
+								<option value="3 étoile">3 étoiles</option>
+								<option value="4 étoile">4 étoiles</option>
+								<option value="5 étoile">5 étoiles</option>
+	
+							</select>
+						</p>
+						<div class="logement">
+							<label for="piscine">Piscine</label>
+							<input type="checkbox" id="piscine" name="piscine">
+							<label for="petit dej">Petit déjeuné</label>
+							<input type="checkbox" id="petit dej" name="petit dej">
+							<label for="dejeuner">Déjeuné</label>
+							<input type="checkbox" id="dejeuner" name="dejeuner">
+							<label for="diner">Diner</label>
+							<input type="checkbox" id="diner" name="diner">
+						</div>
+					</section>
+					<br>
 					<!--a voire select VS checkbox (PHP???) -->
 					<p>
 						<label for="ville_séjour">ville d'intérêt:</label>

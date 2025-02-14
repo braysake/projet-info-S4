@@ -167,3 +167,13 @@ section.accueil p {
 	padding: 20px;
 	background-color: var(--color_3);
 }
+
+section.critèrelogement p label{
+	display: inline-block;
+}
+
+form#adminconfirm{
+	display: flex;
+	margin:100px;
+	margin-left:30% ;
+}
