@@ -56,14 +56,9 @@ h1{
 	margin-left: 0px;
 }
 
-h2{
+h2 , h3 {
 	text-align: center;
-	color: rgb(210,210,0)
-}
-
-h3{
-	text-align: center;
-	color: rgb(175,175,0)
+	color: var(--color_5)
 }
 
 article{
