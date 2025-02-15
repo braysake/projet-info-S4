@@ -33,14 +33,12 @@
 
 	<main>
 		<section>
-		<h1> Voyages </h1>
+		<h2> Voyages </h2>
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
 		</section>
 
-		<!--a revoir
-			1) la section filtre recherche dois être invisible avant que l'on clique sur le bouton
-			2) le css
-			
+		<!--a voir lors des prochaine phase
+			1) la section filtre recherche dois être invisible avant que l'on clique sur le bouton			
 			3) le champs de recherche dois s'update lors de l'appui touche "entrée"
 		-->
 		<section id="recherche">
@@ -61,7 +59,8 @@
 						<input type="range" min="0" max="30" />
 					</p>
 					<br>
-					<section classe="critèrelogement">
+
+					<section classe="critère_logement">
 						<h4>Critère de logement:</h4>
 						<p>
 							<label for="critère de logement">qualité de logement</label>
@@ -75,9 +74,11 @@
 	
 							</select>
 						</p>
+
 						<div class="logement">
 							<label for="piscine">Piscine</label>
 							<input type="checkbox" id="piscine" name="piscine">
+							<br>
 							<label for="petit dej">Petit déjeuné</label>
 							<input type="checkbox" id="petit dej" name="petit dej">
 							<label for="dejeuner">Déjeuné</label>
@@ -86,6 +87,7 @@
 							<input type="checkbox" id="diner" name="diner">
 						</div>
 					</section>
+
 					<br>
 					<!--a voire select VS checkbox (PHP???) -->
 					<p>
@@ -108,27 +110,31 @@
 						<span id="message"></span>
 						<input type="submit" id="bouton" value="appliquer les filtres" />
 					</p>
+				</form>
 			</section>
 		</section>
 
 		<section>
 			<h2>consulter la carte</h2>
-			<img src="image/Capture d’écran du 2025-02-13 13-34-07.png" alt="map">
+			<img id="map" src="image/carte.png" alt="map">
 		</section>
 
 		<section>
 			<h2>nos voyages</h2>
-			<ul>
-				<li>
-					Voyage 1
-				</li>
-				<li>
-					Voyage2
-				</li>
-				<li>
-					<a href=""></a>Voyage 3
-				</li>
-			</ul>
+			<article>
+				Voyage 1
+				<!--image + txt -->
+			</article>
+
+			<article>
+				Voyage 2
+				<!--image + txt -->
+			</article>
+
+			<article>
+				Voyage 3
+				<!--image + txt -->
+			</article>
         </section>
 	</main>
 
