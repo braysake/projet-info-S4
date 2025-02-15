@@ -153,7 +153,7 @@ nav > ul li:hover .sous {
 
 /*menu recherche*/
 #recherche{
-	background-color: gray;
+	background-color: var(--color_3);
 	border-radius: 10px;
 	padding: 10px;
 }
@@ -174,11 +174,8 @@ nav > ul li:hover .sous {
 }
 /*fin du menu recherche*/
 
-#map{
-	width: 100%;
-}
-
 section section{
+	/*problème de syntaxe -----------------------------------------------------------------------------------------------------------------------*/
 	display: po;
 }
 
@@ -197,5 +194,25 @@ section.critère_logement p label{
 form#adminconfirm{
 	display: flex;
 	margin:100px;
-	margin-left: 30% ;
+	margin-left: 30%;
+}
+
+.connexion{
+	text-align: center;
+	margin-left: 30%;
+    margin-right: 30%;
+	border-radius: 25px;
+    padding: 10px;
+    background-color: var(--color_3);
+}
+
+#map{
+	width: 100%;
+}
+
+#profil {
+	text-align: left;
+	border-radius: 25px;
+    padding: 10px;
+    background-color: var(--color_3);
 }
