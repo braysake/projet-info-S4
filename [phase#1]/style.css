@@ -197,7 +197,6 @@ nav > ul li:hover .sous {
 /*fin du menu recherche*/
 
 section.accueil p, #présentation p, #qui section {
-	width: 97%;
 	font-size: large;
 	border-radius: 25px;
 	padding: 20px;
@@ -221,6 +220,13 @@ form#adminconfirm{
 	border-radius: 25px;
     padding: 10px;
     background-color: var(--color_3);
+}
+
+
+#galerie_photo img{
+	display: inline;
+	max-width: 19%;
+	height: 100%;
 }
 
 #map{
