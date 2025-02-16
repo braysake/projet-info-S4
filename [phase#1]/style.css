@@ -4,11 +4,11 @@
     --color_3: #1e368d;
     --color_4: #5a562d;
 	--color_5: #728ff8;
-	--color_7: #edf1ff;
+	--color_6: #edf1ff;
 }
 
 body {
-	background-color: var(--color_7);
+	background-color: var(--color_6);
 	color : var(--color_2);
 	text-align: left;
 	font-family: "Noto Sans", sans-serif;
@@ -22,10 +22,9 @@ header{
 	background-repeat: no-repeat;
 }
 
-/* a revoir*/
 main{
-	margin-left: 5%;
-    margin-right: 5%;
+	margin-left: 1%;
+    margin-right: 0%;
 }
 
 th {
@@ -46,7 +45,7 @@ a:visited {
 */
 
 table, th, td {
-	background-color: var(--color_7);
+	background-color: var(--color_6);
 	color: var(--color_2);
 	border: 1px solid var(--color_2);
 	border-collapse: collapse;
@@ -57,7 +56,7 @@ table, th, td {
 .container {
     display: flex;
     justify-content: space-around;  
-    align-items: center;  
+    align-items: center; 
 }
 
 .rectangle {
@@ -145,7 +144,7 @@ nav a:hover {
 
 .sous {
 	display: none;
-	background-color: var(--color_7);
+	background-color: var(--color_6);
 	position: absolute;
 	width: 100%;
 	z-index: 1000;
@@ -182,7 +181,7 @@ nav > ul li:hover .sous {
 	padding: 10px;
 }
 
-#barre_de_recherhce{
+.barre_de_recherhce{
 	width: 80%;
 	height: 25px;
 	margin-bottom: 10px;
@@ -194,11 +193,10 @@ nav > ul li:hover .sous {
 
 	text-align: center;
 	font-size: larger;
-
 }
 /*fin du menu recherche*/
 
-section.accueil p, #présentation p, #qui p {
+section.accueil p, #présentation p, #qui section {
 	width: 97%;
 	font-size: large;
 	border-radius: 25px;

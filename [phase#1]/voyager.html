@@ -2,7 +2,7 @@
 <html lang="fr"> <!--commentaires -->
 
 <head>
-	<title> CY land </title>
+	<title> CY sland </title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="image/logo cy sland.png"/>
@@ -11,7 +11,7 @@
 <body>
 	<header>
 		<img src="image/logo cy sland.png" class="logo" id="logo" alt="logo" ; width="60%" />
-		<h1> CY land </h1>
+		<h1> CY sland </h1>
 		<nav>
 			<ul>
 				<!-- Menu déroulant pour l'accueil -->
@@ -44,7 +44,7 @@
 		-->
 		<section id="recherche">
 			<form method="post" action="traitement.php">
-				<input id="barre_de_recherhce" type="search" placeholder="recherche"/>
+				<input class="barre_de_recherhce" type="search" placeholder="recherche"/>
 			</form>
 			<button>mes préférence</button>
 
@@ -80,6 +80,13 @@
 							<label for="piscine">Piscine</label>
 							<input type="checkbox" id="piscine" name="piscine">
 							<br>
+							<label for="piscine">randonner</label>
+							<input type="checkbox" id="piscine" name="piscine">
+							<label for="piscine">padel</label>
+							<input type="checkbox" id="piscine" name="piscine">
+							<label for="piscine">visite touristique</label>
+							<input type="checkbox" id="piscine" name="piscine">
+							<br>
 							<label for="petit dej">Petit déjeuné</label>
 							<input type="checkbox" id="petit dej" name="petit dej">
 							<label for="dejeuner">Déjeuné</label>
@@ -88,24 +95,6 @@
 							<input type="checkbox" id="diner" name="diner">
 						</div>
 					</section>
-
-					<br>
-					<!--a voire select VS checkbox (PHP???) -->
-					<p>
-						<label for="ville_séjour">ville d'intérêt:</label>
-						<select multiple="oui">
-								<option> France </option>
-								<option> Allemagne </option>
-								<option> Belgique </option>
-								<option> Chine </option>
-								<option> Etat-Unis </option>
-								<option> Grand-Bretagne </option>
-								<option> Italie </option>
-								<option> Japon </option>
-								<option> Mexique </option>
-								<option> Russie </option>
-						</select>
-					</p>
 
 					<p>
 						<span id="message"></span>
