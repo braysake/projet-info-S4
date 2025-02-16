@@ -63,7 +63,6 @@ table, th, td {
     width: 350px;  
     height: 250px; 
 	transition: transform 0.3s ease-in-out; 
-    background-image: url('image/carte_postal.png');  
     background-size: cover;  
     background-position: center;  
     border-radius: 15px;	
