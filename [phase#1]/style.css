@@ -239,3 +239,30 @@ form#adminconfirm{
 	font-size: 30px ;
     background-color: var(--color_3);
 }
+
+.imagecentre{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#nom{
+	display: flex;
+	align-items: center;
+}
+
+#nom li{
+	display: inline-block;
+	border: var(--color_2) solid 2px;
+	border-radius: 10px;
+	padding: 3px;
+	font-weight: bold;
+	font-size: large;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+footer p{
+	float: right;
+
+}
