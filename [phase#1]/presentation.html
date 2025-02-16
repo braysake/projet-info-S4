@@ -5,6 +5,7 @@
 	<title> CY land </title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="image/logo cy sland.png"/>
 </head>
 
 <body>
@@ -19,9 +20,9 @@
 				<li class="deroulant">
 					<a href="presentation.html">presentation</a>
 					<ul class="sous">
-						<li><a href="presentation.html#présentation">design</a></li>
+						<li><a href="presentation.html#présentation">notre projet</a></li>
 						<li><a href="presentation.html#qui">qui somme nous</a></li>
-						<li><a href="presentation.html#recherche">faire une recherche</a></li>
+						<li><a href="presentation.html#faire_recherche">faire une recherche</a></li>
 					</ul>
 				</li>
 				<li><a href="profil.html">Profil</a></li>
@@ -35,21 +36,39 @@
 		<!-- Section de présentation -->
 		<section id="présentation">
 			<h2> presentation </h2>
+			<p>	Cy sland est un site de recherche de voyage en ligne centré sur le thème des voyage balnéaire en Asie du Sud.
+				<br>
+				Notre but chez Cy sland, vous faire découvrir les merveilleuse île du pacifique, et de vous présenter des déstination de voyage paradisiaque.
+			</p>
 
 			<h2> thème </h2>
 		</section>
 
 		<section id="qui">
 			<h2> qui sommes nous </h2>
+			<p>Nous sommes trois étudiant en deuxième année de prepa intégré:
+				<br>
+				<div>
+					<img src="" alt="image de l'équipe">
+					<p>Narymane SAIDI</p>
+					<p>Irssane LE</p>
+					<p>Mathéo MALLE</p>					
+				</div>
+			</p>
 		</section>
 
-		<section>
+		<section id="faire_recherche">
 			<h2> utiliser nos service </h2>
 			<p> Vous pouvez dès a présent réserver consulter nos offres de voyage et reserver vos vacances <a href="voyager.html">ici</a></p>
+
+			<form action="traitement.php" method="post">
+			<input type="search" placeholder="Que cherchez vous?" id="barre_de_recherhce">
+			</form>
 		</section>
 	</main>
 
 	<footer>
+		<p>Site réalisé en partenariat avec CY TECH.</p>
 		<p> Site exemple réalisé par un professionnel, ne faites pas ça chez vous. </p>
 	</footer>
 </body>

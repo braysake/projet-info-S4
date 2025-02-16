@@ -1,14 +1,14 @@
 :root{
-	--color_1: #edf1ff;
+	--color_1: #fff;
 	--color_2: #000;
     --color_3: #1e368d;
     --color_4: #5a562d;
 	--color_5: #728ff8;
-	--color_7: #009600;
+	--color_7: #edf1ff;
 }
 
 body {
-	background-color: var(--color_1);
+	background-color: var(--color_7);
 	color : var(--color_2);
 	text-align: left;
 	font-family: "Noto Sans", sans-serif;
@@ -145,7 +145,7 @@ nav a:hover {
 
 .sous {
 	display: none;
-	background-color: var(--color_1);
+	background-color: var(--color_7);
 	position: absolute;
 	width: 100%;
 	z-index: 1000;
@@ -198,7 +198,7 @@ nav > ul li:hover .sous {
 }
 /*fin du menu recherche*/
 
-section.accueil p {
+section.accueil p, #présentation p, #qui p {
 	width: 97%;
 	font-size: large;
 	border-radius: 25px;
@@ -233,5 +233,6 @@ form#adminconfirm{
 	text-align: left;
 	border-radius: 25px;
     padding: 10px;
+	font-size: 30px ;
     background-color: var(--color_3);
 }
