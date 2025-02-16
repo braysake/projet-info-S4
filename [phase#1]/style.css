@@ -1,4 +1,4 @@
-b:root{
+:root{
 	--color_1: #edf1ff;
 	--color_2: #000;
     --color_3: #1e368d;
@@ -197,11 +197,6 @@ nav > ul li:hover .sous {
 
 }
 /*fin du menu recherche*/
-
-section section{
-	/*problème de syntaxe -----------------------------------------------------------------------------------------------------------------------*/
-	display: po;
-}
 
 section.accueil p {
 	width: 97%;
