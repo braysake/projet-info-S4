@@ -246,12 +246,12 @@ form#adminconfirm{
 	align-items: center;
 }
 
-#nom_membre{
+#team{
 	display: flex;
 	align-items: center;
 }
 
-#nom_membre li{
+#team li{
 	display: inline-block;
 	border: var(--color_2) solid 2px;
 	border-radius: 10px;
@@ -264,5 +264,15 @@ form#adminconfirm{
 
 footer p{
 	float: right;
-
 }
+img.description{
+	float:left;
+	width: 350px;  
+    height: 250px; 
+	border-radius:15px;
+}
+
+.clear{
+	clear: both;
+}
+
