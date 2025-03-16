@@ -9,57 +9,45 @@
 </head>
 
 <body>
-	<header>
-		<img src="image/logo cy sland.png" class="logo" id="logo" alt="logo" ; width="60%" />
-		<h1> CY sland </h1>
-		<nav>
-			<ul>
-				<!-- Menu déroulant pour l'accueil -->
-				<li><a href="index.php">accueil</a></li>
-				<li><a href="voyager.php">Voyage</a></li>
-				<li class="deroulant">
-					<a href="presentation.php">presentation</a>
-					<ul class="sous">
-						<li><a href="presentation.php#présentation">notre projet</a></li>
-						<li><a href="presentation.php#qui">qui somme nous</a></li>
-						<li><a href="presentation.php#faire_recherche">faire une recherche</a></li>
-					</ul>
-				</li>
-				<li><a href="profil.php">Profil</a></li>
-				<li><a href="inscription.php">sign up</a></li>
-				<li><a href="connexion.php">sign in</a></li>
-			</ul>
-		</nav>
-	</header>
+	<?php
+	include("header.php")
+	?>
+	<main>
+		<section>
+			<h2>Connexion</h2>
+			<form class="connexion" method="post">
+				<p>
+					<label for="mail">mail :</label>
+					<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
+				</p>
 
-	<section>
-		<h2>Connexion</h2>
-		<form class="connexion" method="post" action="traitement.php">
-			<p>
-				<label for="mail">mail :</label>
-				<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
-			</p>
+				<p>
+					<label for="password">Mot de passe :</label>
+					<input type="password" name="password" id="mot_de_passe" required/>
+				</p>
 
-			<p>
-				<label for="password">Mot de passe :</label>
-				<input type="password" name="password" id="mot_de_passe" required/>
-			</p>
+				<p>
+					<span id="message"></span>
+					<input type="reset" value="The Great Reset !" />
+					<input type="submit" name="bouton" id="bouton" value="Créer le compte !" />
+				</p>
 
-			<p>
-				<span id="message"></span>
-				<input type="reset" value="The Great Reset !" />
-				<input type="submit" id="bouton" value="Créer le compte !" />
-			</p>
-	</section>	
-		</form>
+				<?php
+				#si le formulaire est envoyer traiter les données
+				if(isset($_POST["bouton"])){
+					include("variable.php");
 
-	<footer>
-		<p>Site réalisé en partenariat avec CY TECH.</p>
-		<p> Site exemple réalisé par un professionnel, ne faites pas ça chez vous.
-	</footer>
 
+				}
+				?>
+			</form>
+		</section>
+	</main>
+
+	<?php
+	include("footer.php")
+	?>
 </body>
 
 </html>
-
 <script src="script.js"></script>
