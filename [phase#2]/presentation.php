@@ -15,19 +15,19 @@
 		<nav>
 			<ul>
 				<!-- Menu déroulant pour l'accueil -->
-				<li><a href="index.html">accueil</a></li>
-				<li><a href="voyager.html">Voyage</a></li>
+				<li><a href="index.php">accueil</a></li>
+				<li><a href="voyager.php">Voyage</a></li>
 				<li class="deroulant">
-					<a href="presentation.html">presentation</a>
+					<a href="presentation.php">presentation</a>
 					<ul class="sous">
-						<li><a href="presentation.html#présentation">notre projet</a></li>
-						<li><a href="presentation.html#qui">qui somme nous</a></li>
-						<li><a href="presentation.html#faire_recherche">faire une recherche</a></li>
+						<li><a href="presentation.php#présentation">notre projet</a></li>
+						<li><a href="presentation.php#qui">qui somme nous</a></li>
+						<li><a href="presentation.php#faire_recherche">faire une recherche</a></li>
 					</ul>
 				</li>
-				<li><a href="profil.html">Profil</a></li>
-				<li><a href="inscription.html">sign up</a></li>
-				<li><a href="connexion.html">sign in</a></li>
+				<li><a href="profil.php">Profil</a></li>
+				<li><a href="inscription.php">sign up</a></li>
+				<li><a href="connexion.php">sign in</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -59,7 +59,7 @@
 
 		<section id="faire_recherche">
 			<h2> utiliser nos service </h2>
-			<p> Vous pouvez dès a présent réserver consulter nos offres de voyage et reserver vos vacances <a href="voyager.html">ici</a></p>
+			<p> Vous pouvez dès a présent réserver consulter nos offres de voyage et reserver vos vacances <a href="voyager.php">ici</a></p>
 
 			<form action="traitement.php" method="post">
 			<input type="search" placeholder="Que cherchez vous?" class="barre_de_recherhce">
