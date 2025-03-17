@@ -1,3 +1,7 @@
+<?php
+include("variable.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -87,7 +91,6 @@
 				<?php
 				#si le formulaire est envoyer traiter les données
 				if(isset($_POST["bouton"])){
-					include("variable.php");
 
 					#verif mail et mot de passe
 					if($_POST["mail"] != $_POST["mail_Confirmation"]){
@@ -113,6 +116,9 @@
 						}
 						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$_POST["date_de_naissance"].$separateur.$_POST["nationalite"].$separateur.$pseudo."\n";
 						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
+
+						#se connecer
+						$_SESSION["est_connecter"]=1;
 					}
 				}
 				?>

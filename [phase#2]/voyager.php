@@ -1,3 +1,7 @@
+<?php
+include("variable.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr"> <!--commentaires -->
 

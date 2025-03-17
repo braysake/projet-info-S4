@@ -1,4 +1,10 @@
 <?php
+session_start();
+/*
+if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
+	echo "c la fête";
+}
+*/
 $separateur=" ";
 $caractere_def="/";
 $fichier_inscrit="fichier_inscription.csv";
@@ -9,8 +15,8 @@ if(!file_exists($fichier_inscrit)){
 
 #stock l'ensemble des inscrit et leur différent champs
 $tab_inscrit = file($fichier_inscrit);
-foreach($tab_inscrit as $i){
-	$i = explode($separateur, $i);
+for($i=0 ; $i<count($tab_inscrit) ;$i++){
+	$tab_inscrit[$i] = explode($separateur, $tab_inscrit[$i]);
 }
 
 ?>
