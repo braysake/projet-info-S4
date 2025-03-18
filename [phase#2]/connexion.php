@@ -35,45 +35,40 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 				</p>
 
 				<p>
-					<span id="message"></span>
-					<input type="reset" value="The Great Reset !" />
-					<input type="submit" name="bouton" id="bouton" value="Créer le compte !" />
+					<input type="submit" name="bouton" id="bouton" value="Connexion" />
 				</p>
 
 				<?php
 				#si le formulaire est envoyer traiter les données
 				if(isset($_POST["bouton"])){
-
-					#verif mail et mot de passe
-					if($_POST["mail"] != $_POST["mail_Confirmation"]){
-						die("<p>vous devez entrer deux fois la même adresse mail</p>");
+					#verif si mail est correct
+					$i=0;
+					while($i<count($tab_inscrit) && $tab_inscrit[$i][0] != $_POST["mail"]){
+						$i++;
 					}
-					elseif($_POST["password"] != $_POST["password_confirm"]){
-						die("<p>vous devez entrer deux fois la même adresse mots de passe</p>");
+					if($i==count($tab_inscrit)){
+						die("<p>mail incorrect</p>");
+					}
+					elseif($tab_inscrit[$i][1] != $_POST["password"]){
+						die("<p>mot de passe incorrect</p>");
 					}
 					else{
-						#verif si mail déjà utiliser
-						foreach($tab_inscrit as $i){
-							if($i[0] == $_POST["mail"] ){
-								die("<p>Ce mail est déjà utiliser</p>");
-							}
-						}
-
-						#crée le compte
-						if(isset($_POST["pseudo"])){
-							$pseudo=$_POST["pseudo"];
-						}
-						else{
-							$pseudo=$caractere_def;
-						}
-						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$_POST["date_de_naissance"].$separateur.$_POST["nationalite"].$separateur.$pseudo."\n";
-						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
-
 						#se connecer
 						$_SESSION["est_connecter"]=1;
-						$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
+						$_SESSION["id"]=$i;
+						$_SESSION["information"]=array($tab_inscrit[$i][0], $tab_inscrit[$i][1], $tab_inscrit[$i][2],$tab_inscrit[$i][3], $tab_inscrit[$i][4], $tab_inscrit[$i][5]);
+						header("Location: profil.php");
 					}
-				}
+
+					#crée le compte
+					if(isset($_POST["pseudo"])){
+						$pseudo=$_POST["pseudo"];
+					}
+					else{
+						$pseudo=$caractere_def;
+					}
+
+					}
 				?>
 			</form>
 		</section>

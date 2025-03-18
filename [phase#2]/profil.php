@@ -52,6 +52,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 						<?php
 						if(isset($_POST["bouton"])){
 							$_SESSION["est_connecter"]=0;
+							header("Location: connexion.php");
 						}
 						?>
 					</form>

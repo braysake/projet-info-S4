@@ -3,6 +3,7 @@ session_start();
 
 if(!isset ($_SESSION["est_connecter"])){
 	$_SESSION["est_connecter"]=0;
+	$_SESSION["id"]=-1;
 	$_SESSION["information"]=array();
 	die();
 }

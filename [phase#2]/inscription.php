@@ -87,7 +87,6 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 				</p>
 
 				<p>
-					<span id="message"></span>
 					<input type="reset" value="The Great Reset !" />
 					<input type="submit" name="bouton" id="bouton" value="Créer le compte !" />
 				</p>
@@ -112,7 +111,7 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						}
 
 						#crée le compte
-						if(isset($_POST["pseudo"])){
+						if(isset($_POST["pseudo"]) && $_POST["pseudo"]!=NULL){
 							$pseudo=$_POST["pseudo"];
 						}
 						else{
@@ -123,7 +122,9 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 						#se connecer
 						$_SESSION["est_connecter"]=1;
+						$_SESSION["id"]=1;
 						$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
+						header("Location: profil.php");
 					}
 				}
 				?>
