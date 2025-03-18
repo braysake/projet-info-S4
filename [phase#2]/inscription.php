@@ -1,5 +1,9 @@
 <?php
 include("variable.php");
+
+if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
+	header("Location: profil.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +110,7 @@ include("variable.php");
 								die("<p>Ce mail est déjà utiliser</p>");
 							}
 						}
-						
+
 						#crée le compte
 						if(isset($_POST["pseudo"])){
 							$pseudo=$_POST["pseudo"];
@@ -119,6 +123,7 @@ include("variable.php");
 
 						#se connecer
 						$_SESSION["est_connecter"]=1;
+						$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
 					}
 				}
 				?>

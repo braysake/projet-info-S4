@@ -1,5 +1,9 @@
 <?php
 include("variable.php");
+
+if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
+	header("Location: connexion.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +26,7 @@ include("variable.php");
 			<h2>Profil</h2>
 			<section id="profil">
 				<img src="" alt="pp">
+
 				<ul>
 					<li>
 						Prénom:
@@ -38,6 +43,18 @@ include("variable.php");
 					<li>
 						Description:
 					</li>
+
+					<form class="deconnexion" method="post">
+						<p>
+							<input type="submit" name="bouton" id="bouton" value="deconnexion" />
+						</p>
+
+						<?php
+						if(isset($_POST["bouton"])){
+							$_SESSION["est_connecter"]=0;
+						}
+						?>
+					</form>
 				</ul>		
 			</section>
 		</section>	

@@ -1,10 +1,12 @@
 <?php
 session_start();
-/*
-if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
-	echo "c la fête";
+
+if(!isset ($_SESSION["est_connecter"])){
+	$_SESSION["est_connecter"]=0;
+	$_SESSION["information"]=array();
+	die();
 }
-*/
+
 $separateur=" ";
 $caractere_def="/";
 $fichier_inscrit="fichier_inscription.csv";
