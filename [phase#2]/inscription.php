@@ -117,13 +117,17 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						else{
 							$pseudo=$caractere_def;
 						}
-						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$_POST["date_de_naissance"].$separateur.$_POST["nationalite"].$separateur.$pseudo."\n";
+						$temp=explode("-",$_POST["date_de_naissance"]);
+						$date_naissance=$temp[2]."/".$temp[1]."/".$temp[0];
+						unset($temp);
+
+						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0\n";
 						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
 
 						#se connecer
 						$_SESSION["est_connecter"]=1;
 						$_SESSION["id"]=1;
-						$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
+						#$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
 						header("Location: profil.php");
 					}
 				}

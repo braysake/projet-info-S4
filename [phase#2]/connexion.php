@@ -56,19 +56,11 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						#se connecer
 						$_SESSION["est_connecter"]=1;
 						$_SESSION["id"]=$i;
-						$_SESSION["information"]=array($tab_inscrit[$i][0], $tab_inscrit[$i][1], $tab_inscrit[$i][2],$tab_inscrit[$i][3], $tab_inscrit[$i][4], $tab_inscrit[$i][5]);
+						$_SESSION["admin"]=$tab_inscrit[$i][7];
+						#$_SESSION["information"]=array($tab_inscrit[$i][0], $tab_inscrit[$i][1], $tab_inscrit[$i][2],$tab_inscrit[$i][3], $tab_inscrit[$i][4], $tab_inscrit[$i][5], $tab_inscrit[$i][6], $tab_inscrit[$i][7]);
 						header("Location: profil.php");
 					}
-
-					#crée le compte
-					if(isset($_POST["pseudo"])){
-						$pseudo=$_POST["pseudo"];
-					}
-					else{
-						$pseudo=$caractere_def;
-					}
-
-					}
+				}
 				?>
 			</form>
 		</section>

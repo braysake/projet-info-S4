@@ -4,8 +4,8 @@ session_start();
 if(!isset ($_SESSION["est_connecter"])){
 	$_SESSION["est_connecter"]=0;
 	$_SESSION["id"]=-1;
-	$_SESSION["information"]=array();
-	die();
+	$_SESSION["admin"]=0;
+	#$_SESSION["information"]=array();
 }
 
 $separateur=" ";
@@ -21,5 +21,4 @@ $tab_inscrit = file($fichier_inscrit);
 for($i=0 ; $i<count($tab_inscrit) ;$i++){
 	$tab_inscrit[$i] = explode($separateur, $tab_inscrit[$i]);
 }
-
 ?>
