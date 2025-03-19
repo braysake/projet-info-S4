@@ -88,12 +88,12 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 				<p>
 					<input type="reset" value="The Great Reset !" />
-					<input type="submit" name="bouton" id="bouton" value="Créer le compte !" />
+					<input type="submit" name="bouton_inscription" id="bouton" value="Créer le compte !" />
 				</p>
 
 				<?php
 				#si le formulaire est envoyer traiter les données
-				if(isset($_POST["bouton"])){
+				if(isset($_POST["bouton_inscription"])){
 
 					#verif mail et mot de passe
 					if($_POST["mail"] != $_POST["mail_Confirmation"]){

@@ -1,6 +1,7 @@
 <?php
 include("variable.php");
 
+#renvoie vers la page de connexion si le client n'est pas connecter
 if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 	header("Location: connexion.php");
 }
@@ -25,9 +26,29 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 		<section>
 			<h2>Profil</h2>
 			<section id="profil">
-				<img src="" alt="pp">
-
 				<?php
+				#gestion de la photo de profil
+				if(file_exists("image/pp/".$tab_inscrit[$_SESSION["id"]][0])){
+					echo "<img id='pp' src=image/pp/".$tab_inscrit[$_SESSION["id"]][0].">";
+				}
+				else{
+					echo "
+					<form class='add_pp' enctype='multipart/form-data' method='post'>
+					<p>
+						<input type='file' id='fichier_pp' name='pp' accept='image/png, image/jpeg' required />
+					<br>
+						<input type='submit' name='bouton_pp' id='bouton' value='utiliser' />
+					</p>
+					</form>
+					";
+				}
+
+				#télécharge la photo de profil
+				if(isset($_POST["bouton_pp"])){
+					move_uploaded_file($_FILES["pp"]["tmp_name"], "image/pp/".$tab_inscrit[$_SESSION["id"]][0]);#.".".pathinfo($_FILES["pp"]["name"], PATHINFO_EXTENSION));
+				}
+
+				#afficher les information du profil
 				echo "
 						<ul>
 							<li>
@@ -54,11 +75,11 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 
 				<form class="deconnexion" method="post">
 					<p>
-						<input type="submit" name="bouton" id="bouton" value="deconnexion" />
+						<input type="submit" name="bouton_deconnexion" id="bouton" value="deconnexion" />
 					</p>
 
 					<?php
-					if(isset($_POST["bouton"])){
+					if(isset($_POST["bouton_deconnexion"])){
 						/*
 						$_SESSION["est_connecter"]=0;
 						$_SESSION["id"]=-1;
@@ -66,10 +87,9 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 						*/
 						session_destroy();
 						header("Location: connexion.php");
-
 					}
 					?>
-				</form>	
+				</form>
 			</section>
 		</section>	
 	
@@ -77,7 +97,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 		if(isset($_SESSION["admin"]) && $_SESSION["admin"]==1){
 			echo "	<section>
 					<h2>admin menu:</h2>
-					<a href='adminconfirm.php'>go to admin side</a>
+					<a href='admin.php'>go to admin side</a>
 					</section>";
 		}
 		?>
