@@ -1,7 +1,7 @@
 :root{
 	--color_1: #fff;
 	--color_2: #000;
-    --color_3: #1e368d;
+    --color_3: #418fd1;
     --color_4: #5a562d;
 	--color_5: #728ff8;
 	--color_6: #edf1ff;
@@ -13,6 +13,7 @@ body {
 	text-align: left;
 	font-family: "Noto Sans", sans-serif;
 	font-size: 1em;
+	margin : 0%;
 }
 
 header{
@@ -23,7 +24,7 @@ header{
 }
 
 main{
-	margin-left: 1%;
+	margin-left: 0%;
     margin-right: 0%;
 }
 
@@ -55,7 +56,8 @@ table, th, td {
 /*propriété du rectangle */
 .container a{
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around; 
+	align-items: center; 
 
 }
 
@@ -101,7 +103,7 @@ article{
 	border: 1px solid var(--color_2);
 	border-radius: 10px;
 	margin: 15px;
-	width: 100%;
+	/*width: 100%;*/
 }
 
 footer{
@@ -230,11 +232,16 @@ form#adminconfirm{
     background-color: var(--color_3);
 }
 
+#galerie_photo{
+	align-items: flex-start;
+	display: flex;
+}
 
 #galerie_photo img{
-	display: inline;
-	max-width: 19%;
-	height: 100%;
+	display: inline, flex;
+	width: 900px;
+	height: 182%;
+	oject-fit: cover;
 }
 
 #map{
