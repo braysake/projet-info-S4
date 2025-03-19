@@ -19,10 +19,13 @@ include("variable.php");
 
 	<main>
 		<section>
-			<h2>Admin side</h2>
-			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, architecto.
-			</p>
+			<form id="adminconfirm" method="post" action="traitement.php">
+				<input id="codeadmin" type="search" placeholder="Intrue?"/>
+				<button>
+					<input type="submit" id="bouton" value="enter admin side">
+				</button>
+			</form>
+			<button><a href="admin.php">bouton temporaire</a></button>
 		</section>
 	</main>
 
