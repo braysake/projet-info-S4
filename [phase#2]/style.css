@@ -218,12 +218,6 @@ section.critère_logement p label{
 	display: inline-block;
 }
 
-form#adminconfirm{
-	display: flex;
-	margin:100px;
-	margin-left: 30%;
-}
-
 .connexion{
 	text-align: center;
 	margin-left: 30%;
@@ -305,4 +299,12 @@ img.description{
 .containertop a{
 	margin-left: 80px;
 	margin-right: 80px;
+}
+
+#admin_box{
+	text-align: left;
+	border-radius: 25px;
+    padding: 10px;
+	font-size: large;
+    background-color: var(--color_3);
 }

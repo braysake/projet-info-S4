@@ -12,7 +12,7 @@ $separateur=" ";
 $caractere_def="/";
 $fichier_inscrit="fichier_inscription.csv";
 if(!file_exists($fichier_inscrit)){
-	$doc = fopen($fichier_inscrit,"w+");
+	$doc = fopen($fichier_inscrit,"w");
 	fclose($doc);
 }
 

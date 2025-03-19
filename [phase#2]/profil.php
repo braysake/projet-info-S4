@@ -28,7 +28,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 			<section id="profil">
 				<?php
 				#gestion de la photo de profil
-				if(file_exists(glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0])){
+				if(count(glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*'))==1){
 					echo "<img id='photo_profil' src=".glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0].">";
 				}
 				else{

@@ -19,7 +19,7 @@ include("variable.php");
 
 	<main>
 		<section>
-		<h2> Voyages </h2>
+		<h2> Voyages</h2>
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
 		</section>
 

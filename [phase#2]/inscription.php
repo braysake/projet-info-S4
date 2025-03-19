@@ -27,27 +27,27 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 			<form class="connexion" method="post">
 				<p>
 					<label for="prenom">prénom:</label>
-					<input type="text" name="prenom" id="prenom" placeholder="Ex: Robert" autocomplete="off" required autofocus/>
+					<input type="text" name="prenom" placeholder="Ex: Robert" autocomplete="off" required autofocus/>
 				</p>
 
 				<p>
 					<label for="nom">nom :</label>
-					<input type="text" name="nom" id="nom" placeholder="Ex: Dupont" autocomplete="off" required/>
+					<input type="text" name="nom" placeholder="Ex: Dupont" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<label for="pseudo">pseudo:</label>
-					<input type="text" name="pseudo" id="pseudo" placeholder="Ex: ratoon" autocomplete="off"/>
+					<input type="text" name="pseudo" placeholder="Ex: ratoon" autocomplete="off"/>
 				</p>
 
 				<p>
 					<label for="date_de_naissance">date de naissance:</label>
-					<input type="date" name="date_de_naissance" id="date_de_naissance" placeholder="Ex: JJ/MM/AAAA" autocomplete="off" required/>
+					<input type="date" name="date_de_naissance" placeholder="Ex: JJ/MM/AAAA" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<label for="nationalite">nationalité:</label>
-					<select name="nationalite" id="nationalite" autocomplete="off" required/>
+					<select name="nationalite" autocomplete="off" required/>
 							<option> France </option>
 							<option> Allemagne </option>
 							<option> Belgique </option>
@@ -63,32 +63,32 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 				<p>
 					<label for="mail">mail :</label>
-					<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" autocomplete="off" required/>
+					<input type="email" name="mail" placeholder="Ex: Robert.Dupont@gsp.org" autocomplete="off" required/>
 				</p>
 				
 				<p>
 					<label for="mail">confirmation du mail :</label>
-					<input type="email" name="mail_Confirmation" id="mail_Confirmation" placeholder="Ex: Robert.Dupont@gsp.org" autocomplete="off" required/>
+					<input type="email" name="mail_Confirmation" placeholder="Ex: Robert.Dupont@gsp.org" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<label for="password">Mot de passe :</label>
-					<input type="password" name="password" id="mot_de_passe" autocomplete="off" required/>
+					<input type="password" name="password" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<label for="password">Confirmation du mot de passe :</label>
-					<input type="password" name="password_confirm" id="mot_de_passe_confirmation" autocomplete="off" required/>
+					<input type="password" name="password_confirm" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<label for="condition d'utilisations">condition d'utilisations:</label>
-					<input type="checkbox" name="condition d'utilisations" id="condition d'utilisations" autocomplete="off" required/>
+					<input type="checkbox" name="condition d'utilisations" autocomplete="off" required/>
 				</p>
 
 				<p>
 					<input type="reset" value="The Great Reset !" />
-					<input type="submit" name="bouton_inscription" id="bouton" value="Créer le compte !" />
+					<input type="submit" name="bouton_inscription" value="Créer le compte !" />
 				</p>
 
 				<?php
@@ -104,10 +104,12 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 					}
 					else{
 						#verif si mail déjà utiliser
-						foreach($tab_inscrit as $i){
-							if($i[0] == $_POST["mail"] ){
-								die("<p>Ce mail est déjà utiliser</p>");
-							}
+						$i=0;
+						while($i<count($tab_inscrit) && $tab_inscrit[$i][0] != $_POST["mail"]){
+							$i++;
+						}
+						if($i<count($tab_inscrit)){
+							die("<p>Ce mail est déjà utiliser");
 						}
 
 						#crée le compte
@@ -121,12 +123,12 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						$date_naissance=$temp[2]."/".$temp[1]."/".$temp[0];
 						unset($temp);
 
-						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0\n";
+						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0";
 						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
 
 						#se connecer
 						$_SESSION["est_connecter"]=1;
-						$_SESSION["id"]=1;
+						$_SESSION["id"]=$i;
 						#$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
 						header("Location: profil.php");
 					}

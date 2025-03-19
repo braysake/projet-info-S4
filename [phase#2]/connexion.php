@@ -26,16 +26,16 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 			<form class="connexion" method="post">
 				<p>
 					<label for="mail">mail :</label>
-					<input type="email" name="mail" id="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
+					<input type="email" name="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
 				</p>
 
 				<p>
 					<label for="password">Mot de passe :</label>
-					<input type="password" name="password" id="mot_de_passe" required/>
+					<input type="password" name="password" required/>
 				</p>
 
 				<p>
-					<input type="submit" name="bouton_Connexion" id="bouton" value="Connexion" />
+					<input type="submit" name="bouton_Connexion" value="Connexion" />
 				</p>
 
 				<?php
