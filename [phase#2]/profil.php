@@ -28,8 +28,8 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 			<section id="profil">
 				<?php
 				#gestion de la photo de profil
-				if(file_exists("image/pp/".$tab_inscrit[$_SESSION["id"]][0])){
-					echo "<img id='pp' src=image/pp/".$tab_inscrit[$_SESSION["id"]][0].">";
+				if(file_exists(glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0])){
+					echo "<img id='pp' src=".glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0].">";
 				}
 				else{
 					echo "
@@ -45,7 +45,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 
 				#télécharge la photo de profil
 				if(isset($_POST["bouton_pp"])){
-					move_uploaded_file($_FILES["pp"]["tmp_name"], "image/pp/".$tab_inscrit[$_SESSION["id"]][0]);#.".".pathinfo($_FILES["pp"]["name"], PATHINFO_EXTENSION));
+					move_uploaded_file($_FILES["pp"]["tmp_name"], "image/pp/".$tab_inscrit[$_SESSION["id"]][0].".".pathinfo($_FILES["pp"]["name"], PATHINFO_EXTENSION));
 				}
 
 				#afficher les information du profil
