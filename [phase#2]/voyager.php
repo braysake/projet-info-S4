@@ -137,7 +137,7 @@
 		<section>
 			<h2>nos voyages</h2>
 			<div class="container">
-				<a href="croisière1.php?voyage=1">
+				<a href="detail_voyage.php?voyage=1">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -156,7 +156,7 @@
 			<div class="clear"></div>
 			
 			<div class="container">
-				<a href="croisière1.php?voyage=2">
+				<a href="detail_voyage.php?voyage=2">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -174,7 +174,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php?voyage=3">
+				<a href="detail_voyage.php?voyage=3">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -192,7 +192,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=4">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -210,7 +210,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=5">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -228,7 +228,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=6">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -246,7 +246,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=7">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -264,7 +264,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=8">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -282,7 +282,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=9">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -300,7 +300,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=10">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -318,7 +318,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=11">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -336,7 +336,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=12">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -354,7 +354,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=13">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -372,7 +372,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=14">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
@@ -390,7 +390,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="container">
-				<a href="croisière1.php">
+				<a href="detail_voyage.php?voyage=15">
 					<article>
 						<img class="rectangle" src="image/carte_postal.png"/>
 						<p class="description">
