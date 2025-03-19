@@ -1,7 +1,7 @@
 :root{
 	--color_1: #fff;
 	--color_2: #000;
-    --color_3: #418fd1;
+	--color_3: #418fd1;
     --color_4: #5a562d;
 	--color_5: #728ff8;
 	--color_6: #edf1ff;
@@ -66,8 +66,6 @@ table, th, td {
 	margin-right: 15px;
 }
 
-.container .description{
-}
 
 .rectangle {
     width: 350px;  
@@ -103,7 +101,7 @@ article{
 	border: 1px solid var(--color_2);
 	border-radius: 10px;
 	margin: 15px;
-	/*width: 100%;*/
+	width: 95%;
 }
 
 footer{
@@ -241,7 +239,7 @@ form#adminconfirm{
 	display: inline, flex;
 	width: 900px;
 	height: 182%;
-	oject-fit: cover;
+	object-fit: cover;
 }
 
 #map{
