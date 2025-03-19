@@ -29,7 +29,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 				<?php
 				#gestion de la photo de profil
 				if(file_exists(glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0])){
-					echo "<img id='pp' src=".glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0].">";
+					echo "<img id='photo_profil' src=".glob('image/pp/'.$tab_inscrit[$_SESSION["id"]][0].'*')[0].">";
 				}
 				else{
 					echo "
