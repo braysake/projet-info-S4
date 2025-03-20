@@ -10,6 +10,7 @@ if(!isset ($_SESSION["est_connecter"])){
 
 $separateur=" ";
 $caractere_def="/";
+$caractere_fin="|";
 $fichier_inscrit="fichier_inscription.csv";
 if(!file_exists($fichier_inscrit)){
 	$doc = fopen($fichier_inscrit,"w");

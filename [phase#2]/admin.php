@@ -41,15 +41,13 @@ include("variable.php");
 			}
 			else{
 				#change les info en admin
-				echo $tab_inscrit[$i][7];
-				#?????????????????????????????????????????????????????????????????
-				#$tab_inscrit[$i][7]=1;
+				$tab_inscrit[$i][7]=1;
 
 				$doc = fopen($fichier_inscrit,"w");
 				fclose($doc);
 				
 				for($i=0 ; $i<count($tab_inscrit) ;$i++){
-					$info=$tab_inscrit[$i][0].$separateur.$tab_inscrit[$i][1].$separateur.$tab_inscrit[$i][2].$separateur.$tab_inscrit[$i][3].$separateur.$tab_inscrit[$i][4].$separateur.$tab_inscrit[$i][5].$separateur.$tab_inscrit[$i][6].$separateur.$tab_inscrit[$i][7]." \n";
+					$info=$tab_inscrit[$i][0].$separateur.$tab_inscrit[$i][1].$separateur.$tab_inscrit[$i][2].$separateur.$tab_inscrit[$i][3].$separateur.$tab_inscrit[$i][4].$separateur.$tab_inscrit[$i][5].$separateur.$tab_inscrit[$i][6].$separateur.$tab_inscrit[$i][7].$separateur.$caractere_fin."\n";
 					file_put_contents($fichier_inscrit, $info, FILE_APPEND);
 				}
 			}
