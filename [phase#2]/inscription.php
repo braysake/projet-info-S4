@@ -123,7 +123,9 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						$date_naissance=$temp[2]."/".$temp[1]."/".$temp[0];
 						unset($temp);
 
-						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0".$separateur.$caractere_fin."\n";
+						$temp=date("H:i.d.m.y");
+
+						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0".$separateur.$temp.$separateur.$temp.$separateur.$caractere_fin."\n";
 						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
 
 						#se connecer

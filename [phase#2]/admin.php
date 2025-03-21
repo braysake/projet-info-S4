@@ -55,8 +55,36 @@ include("variable.php");
 		?>
 
 		<!--liste de tout les client -->
+		<section id="admin_box">
+			<table>
+				<thead>
+					<th>prénom</th>
+					<th>nom</th>
+					<th>pseudo</th>
+					<th>date de naissance</th>
+					<th>nationalité</th>
+					<th>mail</th>
+				</thead>
 
-
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
 	</main>
 
 	<?php
