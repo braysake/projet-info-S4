@@ -1,5 +1,6 @@
 <?php
     include("header.php");
+
     $id=$_GET["voyage"];
     $file=fopen("excel.csv",'r');
     for ($i=0; $i<=$id;$i++){
@@ -73,4 +74,6 @@
                     
                 </article>
 			</div>";
+
+    include("footer.php")
 ?>
