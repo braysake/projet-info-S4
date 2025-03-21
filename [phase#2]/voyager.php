@@ -1,7 +1,3 @@
-<?php
-include("variable.php");
-?>
-
 <!DOCTYPE html>
 <html lang="fr"> <!--commentaires -->
 
@@ -13,13 +9,32 @@ include("variable.php");
 </head>
 
 <body>
-	<?php
-	include("header.php")
-	?>
+	<header>
+		<img src="image/logo cy sland.png" class="logo" id="logo" alt="logo" ; width="60%" />
+		<h1> CY sland </h1>
+		<nav>
+			<ul>
+				<!-- Menu déroulant pour l'accueil -->
+				<li><a href="index.php">accueil</a></li>
+				<li><a href="voyager.php">Voyage</a></li>
+				<li class="deroulant">
+					<a href="presentation.php">presentation</a>
+					<ul class="sous">
+						<li><a href="presentation.php#présentation">notre projet</a></li>
+						<li><a href="presentation.php#qui">qui somme nous</a></li>
+						<li><a href="presentation.php#faire_recherche">faire une recherche</a></li>
+					</ul>
+				</li>
+				<li><a href="profil.php">Profil</a></li>
+				<li><a href="inscription.php">sign up</a></li>
+				<li><a href="connexion.php">sign in</a></li>
+			</ul>
+		</nav>
+	</header>
 
 	<main>
 		<section>
-		<h2> Voyages</h2>
+		<h2> Voyages </h2>
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
 		</section>
 
@@ -118,19 +133,23 @@ include("variable.php");
 				
 			</div>
 		</section>
-
 		<section>
 			<h2>nos voyages</h2>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=1">
+<?php
+	$file=fopen('excel.csv','r');
+	for($i=0;$i<15;$i++){
+		$tabdetail=fgets($file);
+		$tabdata=explode(";",$tabdetail);
+		echo "<div class='container'>
+				<a href='detail_voyage.php?voyage=1'>
 					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
+						<img class='rectangle' src='.$tabdata[1].' alt='image du voyage"."$i"."'/>
+						<p class='description'>
+							".$tabdata[2]."
 						</p>
-						<div class="clear"></div>
+						<div class='clear'></div>
 						<p>
-							Voyage en thailand
+							".$tabdata[0]."
 						</p>
 						
 					</article>
@@ -138,267 +157,23 @@ include("variable.php");
 				</a>
 				
 			</div>
-			<div class="clear"></div>
-			
-			<div class="container">
-				<a href="detail_voyage.php?voyage=2">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=3">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=4">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=5">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=6">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=7">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=8">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=9">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=10">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=11">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=12">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=13">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=14">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-			<div class="container">
-				<a href="detail_voyage.php?voyage=15">
-					<article>
-						<img class="rectangle" src="image/carte_postal.png"/>
-						<p class="description">
-							bdubqsuqs
-						</p>
-						<div class="clear"></div>
-						<p>
-							Voyage en thailand
-						</p>
-						
-					</article>
-					
-				</a>
-				
-			</div>
-			<div class="clear"></div>
-        </section>
+			<div class='clear'></div>";
+	}
+	?>
+		
 	</main>
 
-	<?php
-	include("footer.php")
-	?>
+	<footer>
+		<p>Site réalisé en partenariat avec CY TECH.</p>
+		<p> Site exemple réalisé par un professionnel, ne faites pas ça chez vous. </p>
+	</footer>
 </body>
 
 </html>
+
+<?php
+
+
+?>
+
 <script src="script.js"></script>
