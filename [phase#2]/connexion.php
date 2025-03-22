@@ -46,6 +46,7 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 					while($i<count($tab_inscrit) && $tab_inscrit[$i][0] != $_POST["mail"]){
 						$i++;
 					}
+					
 					if($i==count($tab_inscrit)){
 						die("<p>mail incorrect</p>");
 					}
@@ -53,18 +54,18 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 						die("<p>mot de passe incorrect</p>");
 					}
 					else{
-						$tab_inscrit[$i][9]=date("H:i.d.m.y");
+						$tab_inscrit[$i][9]=date("H:i.d.m.Y");
 						$doc = fopen($fichier_inscrit,"w");
 						fclose($doc);
 						
-						for($i=0 ; $i<count($tab_inscrit) ;$i++){
-							$info=$tab_inscrit[$i][0].$separateur.$tab_inscrit[$i][1].$separateur.$tab_inscrit[$i][2].$separateur.$tab_inscrit[$i][3].$separateur.$tab_inscrit[$i][4].$separateur.$tab_inscrit[$i][5].$separateur.$tab_inscrit[$i][6].$separateur.$tab_inscrit[$i][7].$separateur.$tab_inscrit[$i][8].$separateur.$tab_inscrit[$i][9].$separateur.$caractere_fin."\n";
+						for($j=0; $j<count($tab_inscrit) ;$j++){
+							$info=$tab_inscrit[$j][0].$separateur.$tab_inscrit[$j][1].$separateur.$tab_inscrit[$j][2].$separateur.$tab_inscrit[$j][3].$separateur.$tab_inscrit[$j][4].$separateur.$tab_inscrit[$j][5].$separateur.$tab_inscrit[$j][6].$separateur.$tab_inscrit[$j][7].$separateur.$tab_inscrit[$j][8].$separateur.$tab_inscrit[$j][9].$separateur.$caractere_fin."\n";
 							file_put_contents($fichier_inscrit, $info, FILE_APPEND);
 						}
 
 						#se connecer
 						$_SESSION["est_connecter"]=1;
-						$_SESSION["id"]=($i-1);
+						$_SESSION["id"]=$i;
 						$_SESSION["admin"]=$tab_inscrit[$i][7];
 						#$_SESSION["information"]=array($tab_inscrit[$i][0], $tab_inscrit[$i][1], $tab_inscrit[$i][2],$tab_inscrit[$i][3], $tab_inscrit[$i][4], $tab_inscrit[$i][5], $tab_inscrit[$i][6], $tab_inscrit[$i][7]);
 						header("Location: index.php");
