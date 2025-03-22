@@ -84,6 +84,44 @@ include("variable.php");
 					</tr>
 				</tbody>
 			</table>
+
+			<ul class="pagination">
+			<?php
+			// Récupérer la page actuelle depuis l'URL (défaut: 1)
+			$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+			$totalPages = 5; // Nombre total de pages
+
+
+			#Bouton "<<" pour revenir en arrière (s'affiche seulement si on n'est pas à la première page)
+
+				if ($currentPage > 1){
+					echo "<li><a href='?page=".($currentPage-1)."'>«</a></li>";
+				}
+
+
+			#Génération des numéros de pages
+
+				for ($i = 1; $i <= $totalPages; $i++){
+					if($i == $currentPage){
+						echo "
+							<li class='active' : ''>
+								<a href='?page=$i'>$i</a>
+							</li>";
+					}
+					else{
+						echo "
+							<li>
+								<a href='?page=$i'>$i</a>
+							</li>";
+					}
+				}
+
+			#Bouton ">>" pour avancer (s'affiche seulement si on n'est pas à la dernière page)
+				if ($currentPage < $totalPages){
+					echo "<li><a href='?page=".($currentPage+1)."'>»</a></li>";
+				}
+			?>
+			</ul>
 		</section>
 	</main>
 
