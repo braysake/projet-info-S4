@@ -311,7 +311,7 @@ img.description{
 
 /*nav liste des inscrit (page admin)*/
 .pagination {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	list-style: none;
 	padding: 0;

@@ -67,59 +67,64 @@ include("variable.php");
 				</thead>
 
 				<tbody>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+					// Nombre total de pages
+					$totalPages=0;
+					$nbr_utilisateur_restant=count($tab_inscrit);
+					while($nbr_utilisateur_restant > 0){
+						$totalPages++;
+						$nbr_utilisateur_restant-=$nbr_per_page;
+					}
+					// Récupérer la page actuelle depuis l'URL (défaut: 1)
+					$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+					for($i=0; $i<$nbr_per_page && ($currentPage==$totalPages && $i<count($tab_inscrit)%$nbr_per_page); $i++){
+						echo "
+						<tr>
+							<th>".$tab_inscrit[$i*$currentPage][2]."</th>
+							<th>".$tab_inscrit[$i*$currentPage][3]."</th>
+							<th>".$tab_inscrit[$i*$currentPage][6]."</th>
+							<th>".$tab_inscrit[$i*$currentPage][4]."</th>
+							<th>".$tab_inscrit[$i*$currentPage][5]."</th>
+							<th>".$tab_inscrit[$i*$currentPage][0]."</th>
+						</tr>
+						";
+					}
+
+
+					?>
 				</tbody>
 			</table>
 
 			<ul class="pagination">
 			<?php
-			// Récupérer la page actuelle depuis l'URL (défaut: 1)
-			$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 			$totalPages = 5; // Nombre total de pages
 
-
 			#Bouton "<<" pour revenir en arrière (s'affiche seulement si on n'est pas à la première page)
-
-				if ($currentPage > 1){
-					echo "<li><a href='?page=".($currentPage-1)."'>«</a></li>";
-				}
-
+			if ($currentPage > 1){
+				echo "<li><a href='?page=".($currentPage-1)."'>«</a></li>";
+			}
 
 			#Génération des numéros de pages
-
-				for ($i = 1; $i <= $totalPages; $i++){
-					if($i == $currentPage){
-						echo "
-							<li class='active' : ''>
-								<a href='?page=$i'>$i</a>
-							</li>";
-					}
-					else{
-						echo "
-							<li>
-								<a href='?page=$i'>$i</a>
-							</li>";
-					}
+			for ($i = 1; $i <= $totalPages; $i++){
+				if($i == $currentPage){
+					echo "
+						<li class='active' : ''>
+							<a href='?page=$i'>$i</a>
+						</li>";
 				}
+				else{
+					echo "
+						<li>
+							<a href='?page=$i'>$i</a>
+						</li>";
+				}
+			}
 
 			#Bouton ">>" pour avancer (s'affiche seulement si on n'est pas à la dernière page)
-				if ($currentPage < $totalPages){
-					echo "<li><a href='?page=".($currentPage+1)."'>»</a></li>";
-				}
+			if ($currentPage < $totalPages){
+				echo "<li><a href='?page=".($currentPage+1)."'>»</a></li>";
+			}
 			?>
 			</ul>
 		</section>
