@@ -12,17 +12,19 @@ if(!isset ($_SESSION["est_connecter"])){
 $separateur=" ";
 $caractere_def="/";
 $caractere_fin="|";
+$fichier_inscrit="fichier_inscription.csv";
 
 #var pour admin page
 $nbr_per_page=5;
 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-#verif si le fichier des inscription existe
-$fichier_inscrit="fichier_inscription.csv";
+#verif si le fichier des inscription exist
 if(!file_exists($fichier_inscrit)){
 	$doc = fopen($fichier_inscrit,"w");
 	fclose($doc);
 }
+$vendeur="MI-3_G";
+$transaction="154632ABCZWTC";
 
 #stock l'ensemble des inscrit et leur différent champs
 $tab_inscrit = file($fichier_inscrit);
