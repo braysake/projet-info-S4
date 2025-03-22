@@ -90,16 +90,12 @@ include("variable.php");
 						</tr>
 						";
 					}
-
-
 					?>
 				</tbody>
 			</table>
 
 			<ul class="pagination">
 			<?php
-			$totalPages = 5; // Nombre total de pages
-
 			#Bouton "<<" pour revenir en arrière (s'affiche seulement si on n'est pas à la première page)
 			if ($currentPage > 1){
 				echo "<li><a href='?page=".($currentPage-1)."'>«</a></li>";
