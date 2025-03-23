@@ -3,7 +3,7 @@
 	--color_2: #000;
     --color_3: #418fd1;
     --color_4: #5a562d;
-	--color_5: #728ff8;
+	--color_5: #0037ff;
 	--color_6: #edf1ff;
 }
 
@@ -69,6 +69,10 @@ table, th, td {
 .container .description{
 }
 */
+
+.container article{
+	width: 100%;
+}
 
 .rectangle {
     width: 350px;  
@@ -311,7 +315,7 @@ img.description{
 
 /*nav liste des inscrit (page admin)*/
 .pagination {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	list-style: none;
 	padding: 0;
