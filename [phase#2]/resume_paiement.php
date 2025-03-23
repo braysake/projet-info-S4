@@ -1,17 +1,16 @@
 <?php
-include("variable.php");
+    include("variable.php");
+	include("header.php")
 ?>
-
 <!DOCTYPE html>
-<html lang="fr">
-<?php
-    include("header.php")
-?>
-
-<body>
-    <main>
-        <article>
+    <html lang="fr">
+    <body>
+        <main>
+            <article>
             <?php
+            if($_GET['status']!="accepted"){
+                header("Location: detail_voyage.php?voyage=".$_GET["voyage"]."&error=1");
+            }
             $qualité=$_GET['qualité'];
             $id=$_GET["voyage"];
             $montant=$_GET['montant'];
@@ -38,8 +37,8 @@ include("variable.php");
             for($i=0;$i<$_GET['nb_act'];$i++){
                 array_push($array_voyage,$_GET[$i]);
             }
-            $out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');
-            $tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+            $out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'','a+');   
+            $tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'');
             $check=0;
             $str_data=implode(' ',$array_voyage);
             for($i=0;$i<count($tab_res);$i++){
@@ -56,13 +55,9 @@ include("variable.php");
             <p>
                 La transaction à été effectuer, merci d'avoir utilisé CY-sland, nous vous souhaitons un agréable séjour.
             </p>
-        </article>
-    </main>
-
-    <?php
-        include("footer.php")
-    ?>
-</body>
-
-</html>
-<script src="script.js"></script>
+            </article>
+        </main>
+    </body>
+<?php
+	include("footer.php")
+?>
