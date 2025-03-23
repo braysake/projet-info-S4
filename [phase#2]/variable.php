@@ -12,7 +12,7 @@ if(!isset ($_SESSION["est_connecter"])){
 $separateur=" ";
 $caractere_def="/";
 $caractere_fin="|";
-$fichier_inscrit="fichier_inscription.csv";
+$fichier_inscrit="data/fichier_inscription.csv";
 
 #var pour admin page
 $nbr_per_page=5;
