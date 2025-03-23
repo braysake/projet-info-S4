@@ -5,6 +5,13 @@ include("variable.php");
 if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 	header("Location: connexion.php");
 }
+
+
+#deconnexion du profils
+if(isset($_POST["bouton_deconnexion"])){
+	session_destroy();
+	header("Location: connexion.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -126,13 +133,6 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 					<p>
 						<input type="submit" name="bouton_deconnexion" id="bouton" value="deconnexion" />
 					</p>
-
-					<?php
-					if(isset($_POST["bouton_deconnexion"])){
-						session_destroy();
-						header("Location: connexion.php");
-					}
-					?>
 				</form>
 			</section>
 		</section>	
