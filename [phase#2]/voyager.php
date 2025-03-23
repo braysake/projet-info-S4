@@ -56,19 +56,19 @@ include("variable.php");
 			<div class="containertop">
 				<a href="detail_voyage.php?voyage=14">
 					<div>
-						<img class="rectangle" src="image/carte_postal.png" alt="tkt">
+						<img class="rectangle" src="image/voyage14.jpg" alt="tkt">
 						<p>Traversez l’Indonésie en partant de Sumatra (Medan), en passant par Java (Jakarta, Bandung, Yogyakarta), pour finalement rejoindre Bali.</p>
 					</div>
 				</a>
 				<a href="detail_voyage.php?voyage=8">
 					<div>
-						<img class="rectangle" src="image/carte_postal.png" alt="tkt">
+						<img class="rectangle" src="image/voyage8.jpg" alt="tkt">
 						<p>Explorez les Moluques, de Ternate à Ambon. Plongée sous-marine, plages vierges, épices parfumées, et culture locale vous attendent.</p>
 					</div>
 				</a>
 				<a href="detail_voyage.php?voyage=4">
 					<div>
-						<img class="rectangle" src="image/carte_postal.png" alt="tkt">
+						<img class="rectangle" src="image/voyage4.jpg" alt="tkt">
 						<p>Départ de Jakarta pour une découverte de sa vie urbaine animée. Puis direction Bandung, ville entourée de montagnes avec ses plantations de thé, sources chaudes, et architecture coloniale. Idéal pour les amoureux de nature et de culture.</p>
 					</div>
 				</a>
@@ -164,7 +164,7 @@ include("variable.php");
 			echo "<div class='container'>
 					<a href='detail_voyage.php?voyage=".$i."'>
 						<article>
-							<img class='rectangle' src='.$tabdata[1].' alt='image du voyage"."$i"."'/>
+							<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
 							<p class='description'>
 								".$tabdata[2]."
 							</p>
