@@ -92,7 +92,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 
 
 						for($i=0; $i<count($tab_paiement) ;$i++){
-							$activité=array_slice($tab_paiement[$i], 4);
+							$activité=array_slice($tab_paiement[$i], 4, $tab_paiement[$i][3]);
 
 							ini_set('arg_separator.output','&');
 							$http_activité=http_build_query($activité);

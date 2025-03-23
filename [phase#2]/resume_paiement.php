@@ -45,13 +45,13 @@
             $check=0;
             $str_data=implode(' ',$array_voyage);
             for($i=0;$i<count($tab_res);$i++){
-                if("".$str_data."\n"==$tab_res[$i]){
+                if($str_data." |\n"== $tab_res[$i]){
                     $check=1;
                 }
             }
             if($check!=1){
                 fwrite($out,implode(' ',$array_voyage));
-                fwrite($out,"\n");
+                fwrite($out," ".$caractere_fin."\n");
             }
 
             ?>
