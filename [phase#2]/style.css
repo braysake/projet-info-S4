@@ -260,7 +260,6 @@ form#adminconfirm{
 
 #galerie_photo img{
 	width: 20%;
-    height: 300px;
     object-fit: cover;
     border-radius: 0px;
 }
