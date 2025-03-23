@@ -78,15 +78,15 @@ include("variable.php");
 					// Récupérer la page actuelle depuis l'URL (défaut: 1)
 					$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-					for($i=0; $i<$nbr_per_page && ($currentPage==$totalPages && $i<count($tab_inscrit)%$nbr_per_page); $i++){
+					for($i=0; $i<$nbr_per_page && $i+$nbr_per_page*($currentPage-1)<count($tab_inscrit); $i++){
 						echo "
 						<tr>
-							<th>".$tab_inscrit[$i*$currentPage][2]."</th>
-							<th>".$tab_inscrit[$i*$currentPage][3]."</th>
-							<th>".$tab_inscrit[$i*$currentPage][6]."</th>
-							<th>".$tab_inscrit[$i*$currentPage][4]."</th>
-							<th>".$tab_inscrit[$i*$currentPage][5]."</th>
-							<th>".$tab_inscrit[$i*$currentPage][0]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][2]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][3]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][6]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][4]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][5]."</th>
+							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][0]."</th>
 						</tr>
 						";
 					}
