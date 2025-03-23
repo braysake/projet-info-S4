@@ -37,8 +37,8 @@
             for($i=0;$i<$_GET['nb_act'];$i++){
                 array_push($array_voyage,$_GET[$i]);
             }
-            $out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'','a+');   
-            $tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'');
+            $out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
+            $tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
             $check=0;
             $str_data=implode(' ',$array_voyage);
             for($i=0;$i<count($tab_res);$i++){
