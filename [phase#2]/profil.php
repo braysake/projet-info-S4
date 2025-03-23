@@ -72,6 +72,19 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 							</li>
 						</ul>
 					";
+
+					#récupère les donner des voyages de l'utilisateur
+					$fichier_voyage="data/".$tab_inscrit[$_SESSION["id"]][0].".csv";
+					if(file_exists($fichier_voyage)){
+						$tab_voyage = file($fichier_voyage);
+						for($i=0 ; $i<count($tab_voyage) ;$i++){
+							$tab_voyage[$i] = explode($separateur, $tab_voyage[$i]);
+						}
+/*
+						for(){
+
+						}*/
+					}
 				?>
 
 				<form class="deconnexion" method="post">
@@ -81,11 +94,6 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 
 					<?php
 					if(isset($_POST["bouton_deconnexion"])){
-						/*
-						$_SESSION["est_connecter"]=0;
-						$_SESSION["id"]=-1;
-						$_SESSION["admin"]=0;
-						*/
 						session_destroy();
 						header("Location: connexion.php");
 					}
