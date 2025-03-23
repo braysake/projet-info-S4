@@ -20,14 +20,14 @@ body {
 header{
 	background-image: url('image/bateau.jpg');
 	background-size: cover;
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	background-position: center center;
-	height : 400px;
+	/*height : 400px;*/
 	background-repeat: no-repeat;
 }
 
 main{
-	margin-left: 1%;
+	margin-left: 0%;
     margin-right: 0%;
 }
 
@@ -69,8 +69,9 @@ table, th, td {
 	margin-right: 15px;
 }
 
-/*.container .description{
-} */
+.container article{
+	width: 100%;
+}
 
 .rectangle {
     width: 350px;  
@@ -253,16 +254,15 @@ form#adminconfirm{
 }
 
 #galerie_photo{
-	align-items: flex-start;
 	display: flex;
+    justify-content: center;
 }
 
 #galerie_photo img{
-	display: inline, flex;
-	width: 400px;
-	height: 320%;
-	object-fit: cover;
-	padding-left: 0px;
+	width: 20%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0px;
 }
 
 #map{
@@ -275,6 +275,10 @@ form#adminconfirm{
     padding: 10px;
 	font-size: 30px ;
     background-color: var(--color_3);
+}
+
+#photo_profil{
+	max-width: 200px;
 }
 
 .imagecentre{
@@ -322,3 +326,63 @@ img.description{
 	margin-left: 80px;
 	margin-right: 80px;
 }
+
+#admin_box{
+	text-align: left;
+	border-radius: 25px;
+	padding: 10px;
+	font-size: large;
+	background-color: var(--color_3);
+}
+
+/*nav liste des inscrit (page admin)*/
+.pagination {
+	display: inline-flex;
+	align-items: center;
+	list-style: none;
+	padding: 0;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pagination li {
+	padding: 10px 15px;
+	text-align: center;
+	border: 1px solid #ddd;
+	background:  var(--color_1);
+}
+
+.pagination li:first-child {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.pagination li:last-child {
+	border-right: none;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.pagination li a {
+	text-decoration: none;
+	color:  var(--color_3);
+	font-size: 16px;
+	display: block;
+}
+
+.pagination li.active {
+	background-color:  var(--color_3);
+	color: white;
+	font-weight: bold;
+	border-color:  var(--color_3);
+}
+
+.pagination li.active a {
+	color: white;
+}
+
+.pagination li:hover {
+	background-color: #f1f1f1;
+}
+/*fin nav liste des inscrit*/
