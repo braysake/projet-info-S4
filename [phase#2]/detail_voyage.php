@@ -37,8 +37,10 @@
     else{
         $qualité="moyen";
     }
+    $prix+=300;
     if (isset($_GET["activité"])){
         $activité=$_GET["activité"];
+        $prix-=300;
         foreach($activité as $act){
             $prix+=100;
         }
@@ -51,10 +53,13 @@
     $prix="".$prix.".00";
     ini_set('arg_separator.output','&');
     $http_activité=http_build_query($activité);
-    $retour="http://localhost/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
+    $retour="http://localhost/website/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
     $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
     echo "<br>".$md5."<br>";
     echo $prix;
+    if(isset($_POST['verif'])){
+        $_SESSION["paiement"]=1;
+    }
     echo "<div class='container'>
                 <article>
                     <img class='rectangle' src='image/carte_postal.png'/>
@@ -72,9 +77,9 @@
                     </p>
                     <p class='description'>
                         <form method='get' action='detail_voyage.php'>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[5]."' > ".$tabvoyage[5]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[6]."' > ".$tabvoyage[6]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[7]."' > ".$tabvoyage[7]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked> ".$tabvoyage[5]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked> ".$tabvoyage[6]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked> ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
 							<select name='qualité' id='qualité'>
 								<option value='économique'>économique</option>
@@ -106,7 +111,9 @@
                     <input type='hidden' name='transaction' value='".$transaction."'>
                     <input type='hidden' name='retour' value='$retour'>
                     <input type='hidden' name='control' value='".$md5."'>
-                    <input type='submit' value='Payer'>
+                    <input type='submit' name='verif' value='Payer'>
                 </form>
             </div>";
+            
+    include('footer.php');
 ?>
