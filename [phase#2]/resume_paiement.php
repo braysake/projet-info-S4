@@ -1,9 +1,12 @@
 <?php
     include("variable.php");
-	include("header.php")
 ?>
 <!DOCTYPE html>
     <html lang="fr">
+    <?php
+	include("header.php")
+    ?>
+
     <body>
         <main>
             <article>

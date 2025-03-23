@@ -96,7 +96,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 
 							ini_set('arg_separator.output','&');
 							$http_activité=http_build_query($activité);
-							$retour="http://localhost/resume_paiement.php?voyage=".($tab_paiement[$i][0]-1)."&qualité=".$tab_paiement[$i][1]."&".$http_activité."&nb_act=".$tab_paiement[$i][3]."&montant=".$tab_paiement[$i][2];
+							$retour="http://localhost/resume_paiement.php?voyage=".($tab_paiement[$i][0]-1)."&qualité=".$tab_paiement[$i][1]."&".$http_activité."&nb_act=".$tab_paiement[$i][3]."&status=accepted&montant=".$tab_paiement[$i][2];
 
 							echo "
 								<div class='container'>
@@ -118,10 +118,6 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 								</div>
 								<div class='clear'></div>
 							";
-
-
-
-
 						}
 					}
 				?>

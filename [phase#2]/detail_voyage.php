@@ -55,7 +55,7 @@
     $prix="".$prix.".00";
     ini_set('arg_separator.output','&');
     $http_activité=http_build_query($activité);
-    $retour="http://localhost/website/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
+    $retour="http://localhost/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
     $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
     if(isset($_POST['verif'])){
         $_SESSION["paiement"]=1;
