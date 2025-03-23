@@ -19,18 +19,20 @@ include("variable.php");
 
 	<main>
 		<section class="accueil">
-			<h2> accueil </h2>
+			<h2> Accueil </h2>
 			<p>
-				Envie de sentir le vent sur le sable fin. Envie de se prélasser sur la plage. Avec Cy sland découvrer les merveille de l'Asie du sud-est.
+				Envie de se prélasser sur la plage.<br>
+				Envie de sentir le vent sur le sable fin. <br> 
+				Avec Cy sland découvrer les merveille de l'Asie du sud-est. <br>
 				Nos bateaux tous confort a la pointe vous permettrons de parcourir durant vôtre séjour un surprenante diversiter de teritoire,
-				des grandes villes touristique comme Bangkok auc épaisse forêt indonésienne. le choix s'offre a vous.
+				des grandes villes touristique comme Bangkok auc épaisse forêt indonésienne. Le choix s'offre a vous ! <br>	
 			</p>
 			<section id="galerie_photo">
 				<img src="image/singapour.jpg" alt="image singapour"/>
-				<img src="image/philippines.jpeg" alt="image philippines"/>
-				<img src="image/foret indonésienne.jpg" alt="image fôret indonésienne"/>
-				<img src="image/mer asie du sud-est.jpeg" alt="image mer d'Asie du sud-est"/>
-				<img src="image/thailande.jpg" alt="image thailande"/>
+				<img src="image/philippines2.jpeg" alt="image philippines2"/>
+				<img src="image/indonésie2.jpg" alt="image indonésie"/>
+				<img src="image/asie.jpeg" alt="image mer d'Asie du sud-est"/>
+				<img src="image/thailand.jpeg" alt="image thailande"/>
 			</section>
 		</section>
 	</main>

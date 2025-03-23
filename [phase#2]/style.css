@@ -5,6 +5,7 @@
     --color_4: #5a562d;
 	--color_5: #728ff8;
 	--color_6: #edf1ff;
+	--color_7: #2b468e; 
 }
 
 body {
@@ -19,7 +20,9 @@ body {
 header{
 	background-image: url('image/bateau.jpg');
 	background-size: cover;
+	background-attachment: fixed;
 	background-position: center center;
+	height : 400px;
 	background-repeat: no-repeat;
 }
 
@@ -66,9 +69,8 @@ table, th, td {
 	margin-right: 15px;
 }
 
-.container article{
-	width: 100%;
-}
+/*.container .description{
+} */
 
 .rectangle {
     width: 350px;  
@@ -76,7 +78,7 @@ table, th, td {
 	transition: transform 0.3s ease-in-out; 
     background-size: cover;  
     background-position: center;  
-    border-radius: 15px;	
+    border-radius: 10px;	
 }
 
 .rectangle:hover {
@@ -94,10 +96,22 @@ h1{
 	margin-right: 20px;
 }
 
-h2 , h3 {
+h2 {
 	text-align: center;
-	color: var(--color_5)
+	color: var(--color_5);
 }
+
+h3{
+	color: var(--color_1);
+	text-align:right;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 20px;
+}
+
+h1, h2, h3, p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+} 
 
 article{
 	background-color: var(--color_3);
@@ -147,10 +161,15 @@ nav a {
 	border-bottom: 2px solid transparent;
 	padding: 10px 0px;
 	line-height: 40px; /* Ajuste cette valeur pour correspondre à la hauteur de l'élément */
+	font-size: 20px;
+	font-weight: bold;
+    padding: 1px;
 }
 nav a:hover {
 	color: var(--color_2);
 	border-bottom: 2px solid var(--color_2);
+	background-color: var(--color_7);
+    border-radius: 5px;
 }
 
 .sous {
@@ -209,13 +228,19 @@ nav > ul li:hover .sous {
 
 section.accueil p, #présentation p, #qui section {
 	font-size: large;
-	border-radius: 25px;
+	border-radius: 0px;
 	padding: 20px;
 	background-color: var(--color_3);
 }
 
 section.critère_logement p label{
 	display: inline-block;
+}
+
+form#adminconfirm{
+	display: flex;
+	margin:100px;
+	margin-left: 30%;
 }
 
 .connexion{
@@ -234,9 +259,10 @@ section.critère_logement p label{
 
 #galerie_photo img{
 	display: inline, flex;
-	width: 900px;
-	height: 182%;
+	width: 400px;
+	height: 320%;
 	object-fit: cover;
+	padding-left: 0px;
 }
 
 #map{
@@ -249,10 +275,6 @@ section.critère_logement p label{
     padding: 10px;
 	font-size: 30px ;
     background-color: var(--color_3);
-}
-
-#photo_profil{
-	max-width: 200px;
 }
 
 .imagecentre{
@@ -284,7 +306,7 @@ img.description{
 	float:left;
 	width: 350px;  
     height: 250px; 
-	border-radius:15px;
+	border-radius:10px;
 }
 
 .clear{
@@ -300,63 +322,3 @@ img.description{
 	margin-left: 80px;
 	margin-right: 80px;
 }
-
-#admin_box{
-	text-align: left;
-	border-radius: 25px;
-    padding: 10px;
-	font-size: large;
-    background-color: var(--color_3);
-}
-
-/*nav liste des inscrit (page admin)*/
-.pagination {
-	display: inline-flex;
-	align-items: center;
-	list-style: none;
-	padding: 0;
-	border-radius: 8px;
-	overflow: hidden;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.pagination li {
-	padding: 10px 15px;
-	text-align: center;
-	border: 1px solid #ddd;
-	background:  var(--color_1);
-}
-
-.pagination li:first-child {
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
-}
-
-.pagination li:last-child {
-	border-right: none;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-}
-
-.pagination li a {
-	text-decoration: none;
-	color:  var(--color_3);
-	font-size: 16px;
-	display: block;
-}
-
-.pagination li.active {
-	background-color:  var(--color_3);
-	color: white;
-	font-weight: bold;
-	border-color:  var(--color_3);
-}
-
-.pagination li.active a {
-	color: white;
-}
-
-.pagination li:hover {
-	background-color: #f1f1f1;
-}
-/*fin nav liste des inscrit*/
