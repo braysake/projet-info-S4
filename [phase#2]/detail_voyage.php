@@ -14,7 +14,7 @@
         return "zzzz";
     }
     $id=$_GET["voyage"];
-    $file=fopen("image/excel.csv",'r');
+    $file=fopen("data/excel.csv",'r');
     for ($i=0; $i<=$id;$i++){
         $detail=fgets($file);
     }

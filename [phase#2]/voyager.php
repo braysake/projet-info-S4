@@ -154,7 +154,7 @@ include("variable.php");
 			</form>
 		</section>
 	</section>";
-	$file=fopen('image/excel.csv','r');
+	$file=fopen('data/excel.csv','r');
 	if(!isset($_GET["checkfiltre"])){
 		echo "quelque voyage à découvrir";
 		for($i=0;$i<15;$i++){
