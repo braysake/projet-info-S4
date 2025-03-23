@@ -65,10 +65,10 @@ table, th, td {
 	float: left;
 	margin-right: 15px;
 }
-/*
-.container .description{
+
+.container article{
+	width: 100%;
 }
-*/
 
 .rectangle {
     width: 350px;  
