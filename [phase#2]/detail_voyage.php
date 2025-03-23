@@ -14,7 +14,7 @@
         return "zzzz";
     }
     $id=$_GET["voyage"];
-    $file=fopen("excel.csv",'r');
+    $file=fopen("image/excel.csv",'r');
     for ($i=0; $i<=$id;$i++){
         $detail=fgets($file);
     }
@@ -46,10 +46,12 @@
     else{
         $activité=array("$tabvoyage[5]","$tabvoyage[6]","$tabvoyage[7]");
     }
+    $nb_act=count($activité);
     $api=getapikey($vendeur);
-    echo $api;
     $prix="".$prix.".00";
-    $retour="http://localhost/website/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&session=s";
+    ini_set('arg_separator.output','&');
+    $http_activité=http_build_query($activité);
+    $retour="http://localhost/website/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
     $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
     echo "<br>".$md5."<br>";
     echo $prix;
@@ -70,9 +72,9 @@
                     </p>
                     <p class='description'>
                         <form method='get' action='detail_voyage.php'>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked> ".$tabvoyage[5]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked> ".$tabvoyage[6]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked> ".$tabvoyage[7]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[5]."' > ".$tabvoyage[5]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[6]."' > ".$tabvoyage[6]."<br>
+                            <input type='checkbox' name='activité[]' value='".$tabvoyage[7]."' > ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
 							<select name='qualité' id='qualité'>
 								<option value='économique'>économique</option>
