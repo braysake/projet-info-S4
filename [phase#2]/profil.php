@@ -73,28 +73,55 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 						";
 
 					#récupère les donner des voyages de l'utilisateur
-					$fichier_voyage="data/".$tab_inscrit[$_SESSION["id"]][0].".csv";
-					if(file_exists($fichier_voyage)){
-						$tab_voyage = file($fichier_voyage);
-						for($i=0 ; $i<count($tab_voyage) ;$i++){
-							$tab_voyage[$i] = explode($separateur, $tab_voyage[$i]);
+					$fichier_paiement="data/".$tab_inscrit[$_SESSION["id"]][0].".csv";
+					$fichier_voyage="data/excel.csv";
+					if(file_exists($fichier_paiement)){
+						$tab_paiement = file($fichier_paiement);
+						for($i=0 ; $i<count($tab_paiement) ;$i++){
+							$tab_paiement[$i] = explode($separateur, $tab_paiement[$i]);
 						}
 
-						for($i=0; $i<count($tab_voyage) ;$i++){
-							$activité=array_slice($tab_voyage[$i], 4);
+						if(!file_exists($fichier_voyage)){
+							die("error data base");
+						}
+
+						$tab_voyage = file($fichier_voyage);
+						for($i=0 ; $i<count($tab_voyage) ;$i++){
+							$tab_voyage[$i] = explode(";", $tab_voyage[$i]);
+						}
+
+
+						for($i=0; $i<count($tab_paiement) ;$i++){
+							$activité=array_slice($tab_paiement[$i], 4);
 
 							ini_set('arg_separator.output','&');
 							$http_activité=http_build_query($activité);
-							$retour="http://localhost/resume_paiement.php?voyage=".$tab_voyage[$i][0]."&qualité=".$tab_voyage[$i][1]."&".$http_activité."&nb_act=".$tab_voyage[$i][3]."&montant=".$tab_voyage[$i][2];
+							$retour="http://localhost/resume_paiement.php?voyage=".($tab_paiement[$i][0]-1)."&qualité=".$tab_paiement[$i][1]."&".$http_activité."&nb_act=".$tab_paiement[$i][3]."&montant=".$tab_paiement[$i][2];
 
 							echo "
-								<a href='".$retour."'>
-								<div>
-									<img class='rectangle' src='image/carte_postal.png' alt='tkt'>
-									<p>Explorez les Moluques, de Ternate à Ambon. Plongée sous-marine, plages vierges, épices parfumées, et culture locale vous attendent.</p>
+								<div class='container'>
+									<a href='".$retour."'>
+										<article>
+											<img class='rectangle' src='".$tab_voyage[$i][1]."' alt='image du voyage".$i."'/>
+											<p class='description'>
+												".$tab_voyage[$i][2]."
+											</p>
+											<p class='description'>
+												prix: ".$tab_paiement[$i][2]."
+											</p>
+											<div class='clear'></div>
+											<p>
+												".$tab_voyage[$i][0]."
+											</p>
+										</article>
+									</a>
 								</div>
-								</a>
-								";
+								<div class='clear'></div>
+							";
+
+
+
+
 						}
 					}
 				?>
