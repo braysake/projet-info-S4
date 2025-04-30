@@ -6,7 +6,6 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 	header("Location: connexion.php");
 }
 
-
 #deconnexion du profils
 if(isset($_POST["bouton_deconnexion"])){
 	session_destroy();
@@ -123,11 +122,17 @@ if(isset($_POST["bouton_deconnexion"])){
 										</article>
 									</a>
 								</div>
-								<div class='clear'></div>
 							";
 						}
 					}
 				?>
+
+				<form class="panier" action='panier.php' method="post">
+					<p>
+						<input type="submit" name="panier" id="bouton" value="voir mon panier" />
+					</p>
+				</form>
+
 
 				<form class="deconnexion" method="post">
 					<p>

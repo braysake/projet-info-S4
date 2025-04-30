@@ -6,7 +6,7 @@
         header("Location: connexion.php");
     }
     include("header.php");
-    if($_GET['error']==1){
+    if(isset($_GET['error']) && $_GET['error']==1){
         echo "<h2>Erreur de paiement</h2>";
     }
     function getAPIKey($vendeur){
@@ -113,7 +113,44 @@
                     <input type='hidden' name='control' value='".$md5."'>
                     <input type='submit' name='verif' value='Payer'>
                 </form>
+
+                <form method='post'>
+                    <input type='submit' name='add_panier' value='ajouter au panier'>
+                </form>
             </div>";
-            
+
+            if(isset($_POST["add_panier"])){
+                $montant=$prix;
+
+                $file=fopen('data/excel.csv','r');
+                for ($i=0; $i<=$id;$i++){
+                    $detail=fgets($file);
+                }
+                $tabvoyage=explode(";",$detail);
+
+                $array_voyage=array($id+1,$qualité,$montant,$nb_act);
+                for($i=0;$i<$nb_act;$i++){
+                    array_push($array_voyage,$activité[$i]);
+                }
+    
+                $out=fopen('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
+                $tab_res=file('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+                $check=0;
+                $str_data=implode(' ',$array_voyage);
+                for($i=0;$i<count($tab_res);$i++){
+                    if($str_data." |\n"== $tab_res[$i]){
+                        $check=1;
+                    }
+                }
+
+                if($check!=1){
+                    fwrite($out,implode(' ',$array_voyage));
+                    fwrite($out," ".$caractere_fin."\n");
+                }
+
+                header("Location: voyager.php");
+            }
+
     include('footer.php');
+    echo "<script src='detail_voyage.js'> </script>";
 ?>

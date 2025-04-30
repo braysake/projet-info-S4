@@ -61,7 +61,6 @@ table, th, td {
     display: flex;
     justify-content: space-around; 
 	align-items: center; 
-
 }
 
 .container img{
@@ -385,3 +384,34 @@ img.description{
 	background-color: #f1f1f1;
 }
 /*fin nav liste des inscrit*/
+
+/*panier*/
+.panier_bloc{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;  
+}
+
+.panier_btn {
+	width: 30px;
+	height: 30px;
+	background-color: #ccc;
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+
+.panier_btn:hover {
+	background-color: #aaa;
+  }
+/* fin du panier*/
