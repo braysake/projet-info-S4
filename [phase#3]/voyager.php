@@ -59,17 +59,18 @@ include("variable.php");
 		<section>
 			<h2>nos voyages</h2>
 <?php
-	echo "<section id='recherche'>
+	echo "
+	<section id='recherche'>
 		<form method='GET' action=''>
-			<input class='barre_de_recherhce' type='search' placeholder='recherche'/>
+			<input class='barre_de_recherhce' type='search' placeholder='filtre'/>
 		</form>
 		<button>mes préférence</button>
 
 		<section>
-			<form method='GET' action='voyager.php'>
+			<form method='GET' action='voyager.php' id='filtreapp'>
 				<p>
 					<label for='prix'>prix : (de 500 à 2000) </label><br>
-					<input type='range' min='500' max='2000' list='tickmarks'>
+					<input type='range' name='prix' min='500' max='2000' list='tickmarks'>
 					<datalist id='tickmarks'>
 					<option value='500' label='0%'></option>
 					<option value='800'></option>
@@ -82,7 +83,7 @@ include("variable.php");
 
 				<p>
 					<label for='durée_sejour'>durée du séjour: (de 5 à 15 jours)</label><br>
-					<input type='range' min='5' max='15' list='tickmarks2'>
+					<input type='range' name='durée' min='5' max='15' list='tickmarks2'>
 					<datalist id='tickmarks2'>
 					<option value='5' label='0%'></option>
 					<option value='6'></option>
@@ -136,7 +137,7 @@ include("variable.php");
 		</section>
 	</section>";
 	$file=fopen('data/excel.csv','r');
-	if(!isset($_GET["checkfiltre"])){
+	if(!isset($_GET["checkfiltre"]) && !isset($_GET['durée']) && !isset($_GET['prix'])){
 		echo "quelque voyage à découvrir";
 		for($i=0;$i<15;$i++){
 			$tabdetail=fgets($file);
@@ -152,24 +153,25 @@ include("variable.php");
 							<div class='clear'></div>
 							<p>
 								".$tabdata[0]."
-							</p>
-							
-						</article>
-						
-					</a>
-					
-				</div>
+						checkfiltre
 				<div class='clear'></div>";
 		}
 	}
 	else{
-		$check=$_GET['checkfiltre'];
+		if(isset($_GET['checkfiltre'])){
+			$check=$_GET['checkfiltre'];
+		}
+		else{
+			$check=array("plage","gastronomie","visite");
+		}
+		$durée=$_GET['durée'];
+		$prix=$_GET['prix'];
 		echo "<h2>Voici les resultats de votre recherche</h2>";
 		for($i=0;$i<15;$i=$i+3){
 			$tabdetail=fgets($file);
 			$tabdata=explode(";",$tabdetail);
 			foreach($check as $ch){
-				if($tabdata[5]==$ch || $tabdata[6]==$ch || $tabdata[7]==$ch){
+				if(($tabdata[5]==$ch || $tabdata[6]==$ch || $tabdata[7]==$ch) && $tabdata[3]<=$prix && $tabdata[4]<=$durée){
 					echo  "<div class='container'>
 						<a href='detail_voyage.php?voyage=".$i."'>
 							<article>
@@ -181,7 +183,8 @@ include("variable.php");
 								<p>
 									".$tabdata[0]."
 								</p>
-								
+								<h4 id='prixmoy'>prix=".$tabdata[3]."€<h4>
+								<h4 id='duréemoy'>durée=".$tabdata[4]." jours<h4>
 							</article>
 							
 						</a>
@@ -208,4 +211,4 @@ include("variable.php");
 
 ?>
 
-<script src="script.js"></script>
+<script src="unFichier.js" type="text/javascript"></script>
