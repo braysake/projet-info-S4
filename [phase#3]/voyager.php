@@ -153,7 +153,12 @@ include("variable.php");
 							<div class='clear'></div>
 							<p>
 								".$tabdata[0]."
-						checkfiltre
+							</p>
+							<h4 id='prixmoy'>prix=".$tabdata[3]."€<h4>
+							<h4 id='duréemoy'>durée=".$tabdata[4]." jours<h4>
+						</article>		
+					</a>	
+				</div>
 				<div class='clear'></div>";
 		}
 	}
@@ -162,7 +167,7 @@ include("variable.php");
 			$check=$_GET['checkfiltre'];
 		}
 		else{
-			$check=array("plage","gastronomie","visite");
+			$check=array("plage","randonée","gastronomie","visite","plongée","croisière","shopping","exploration","excurssion","safari");
 		}
 		$durée=$_GET['durée'];
 		$prix=$_GET['prix'];
@@ -175,7 +180,7 @@ include("variable.php");
 					echo  "<div class='container'>
 						<a href='detail_voyage.php?voyage=".$i."'>
 							<article>
-								<img class='rectangle' src='.$tabdata[1].' alt='image du voyage"."$i"."'/>
+								<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
 								<p class='description'>
 									".$tabdata[2]."
 								</p>

@@ -55,7 +55,7 @@
     $prix="".$prix.".00";
     ini_set('arg_separator.output','&');
     $http_activité=http_build_query($activité);
-    $retour="http://localhost/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
+    $retour="http://localhost/website/resume_paiement.php?voyage=".$id."&qualité=".$qualité."&".$http_activité."&nb_act=".$nb_act."&session=s";
     $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
     if(isset($_POST['verif'])){
         $_SESSION["paiement"]=1;
@@ -77,9 +77,9 @@
                     </p>
                     <p class='description'>
                         <form method='get' action='detail_voyage.php'>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked> ".$tabvoyage[5]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked> ".$tabvoyage[6]."<br>
-                            <input type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked> ".$tabvoyage[7]."<br>
+                            <input id='act1' type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked onclick='change()'> ".$tabvoyage[5]."<br>
+                            <input id='act2' type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked onclick='change()'> ".$tabvoyage[6]."<br>
+                            <input id='act3' type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked onclick='change()'> ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
 							<select name='qualité' id='qualité'>
 								<option value='économique'>économique</option>
@@ -92,9 +92,9 @@
                                 <input type='submit' id='bouton_voyage' value='appliquer les filtres' />
                         </form>
                         Prix: <br>
-                        <h1>
+                        <script src='detail_voyage.js' type='text/javascript'></script>
+                        <h1 id='prix' data-base='".$tabvoyage[3]."'>
                             ".$prix."€
-
                         </h1>
                     <div class='clear'></div>
                     <p>
@@ -109,7 +109,7 @@
                     <input type='hidden' name='montant' value='".$prix."'>
                     <input type='hidden' name='vendeur' value='".$vendeur."'>
                     <input type='hidden' name='transaction' value='".$transaction."'>
-                    <input type='hidden' name='retour' value='$retour'>
+                    <input type='hidden' name='retour' value='".$retour."'>
                     <input type='hidden' name='control' value='".$md5."'>
                     <input type='submit' name='verif' value='Payer'>
                 </form>
@@ -118,7 +118,8 @@
                     <input type='submit' name='add_panier' value='ajouter au panier'>
                 </form>
             </div>";
-
+            echo "
+                <a href='confirmation' >";
             if(isset($_POST["add_panier"])){
                 $montant=$prix;
 
