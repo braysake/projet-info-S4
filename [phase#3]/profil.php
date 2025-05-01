@@ -122,6 +122,7 @@ if(isset($_POST["bouton_deconnexion"])){
 										</article>
 									</a>
 								</div>
+								<div class='clear'></div>
 							";
 						}
 					}

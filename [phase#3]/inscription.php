@@ -24,15 +24,17 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 	<main>
 		<section>
 			<h2>Création d'un nouveau compte</h2>
-			<form class="connexion" method="post">
+			<form id="form_inscription" class="connexion" method="post">
 				<p>
 					<label for="prenom">prénom:</label>
 					<input type="text" name="prenom" placeholder="Ex: Robert" autocomplete="off" required autofocus/>
+					<span id="count1">0</span>
 				</p>
 
 				<p>
 					<label for="nom">nom :</label>
 					<input type="text" name="nom" placeholder="Ex: Dupont" autocomplete="off" required/>
+					<span id="count2">0</span>
 				</p>
 
 				<p>
@@ -74,11 +76,15 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 				<p>
 					<label for="password">Mot de passe :</label>
 					<input type="password" name="password" autocomplete="off" required/>
+					<span class="oeil" id="oeil_mdp_inscription">👁️</span>
+					<span id="count3">0</span>
 				</p>
 
 				<p>
 					<label for="password">Confirmation du mot de passe :</label>
 					<input type="password" name="password_confirm" autocomplete="off" required/>
+					<span class="oeil" id="oeil_mdp_comfirme_inscription">👁️</span>
+					<span id="count4">0</span>
 				</p>
 
 				<p>
@@ -87,6 +93,7 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 				</p>
 
 				<p>
+					<span id="message_inscription"></span>
 					<input type="reset" value="The Great Reset !" />
 					<input type="submit" name="bouton_inscription" value="Créer le compte !" />
 				</p>
@@ -162,4 +169,4 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 </body>
 
 </html>
-<script src="script.js"></script>
+<script type="module" src="inscription.js"></script>

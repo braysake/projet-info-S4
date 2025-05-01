@@ -23,7 +23,7 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 	<main>
 		<section>
 			<h2>Connexion</h2>
-			<form class="connexion" method="post">
+			<form id="form_connexion" class="connexion" method="post">
 				<p>
 					<label for="mail">mail :</label>
 					<input type="email" name="mail" placeholder="Ex: Robert.Dupont@gsp.org" required/>
@@ -32,9 +32,12 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 				<p>
 					<label for="password">Mot de passe :</label>
 					<input type="password" name="password" required/>
+					<span class="oeil" id="oeil_mdp_connexion">👁️</span>
+					<span id="count">0</span>
 				</p>
 
 				<p>
+					<span id="message_connexion"></span>
 					<input type="submit" name="bouton_Connexion" value="Connexion" />
 				</p>
 
@@ -82,4 +85,4 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 </body>
 
 </html>
-<script src="script.js"></script>
+<script type="module" src="connexion.js"></script>

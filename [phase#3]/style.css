@@ -329,6 +329,7 @@ img.description{
 	text-align: left;
 	border-radius: 25px;
 	padding: 10px;
+	margin-top: 20px;
 	font-size: large;
 	background-color: var(--color_3);
 }
@@ -415,3 +416,7 @@ img.description{
 	background-color: #aaa;
   }
 /* fin du panier*/
+
+.oeil{
+	cursor: pointer;
+  }
