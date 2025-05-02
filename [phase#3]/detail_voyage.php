@@ -81,9 +81,9 @@
                             <input id='act2' type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked onclick='change()'> ".$tabvoyage[6]."<br>
                             <input id='act3' type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked onclick='change()'> ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
-							<select name='qualité' id='qualité'>
+							<select name='qualité' id='qualité' onchange='change()'>
 								<option value='économique'>économique</option>
-								<option value='moyen'>moyen</option>
+								<option value='moyen' selected>moyen</option>
 								<option value='deluxe'>deluxe</option>
 	
 							</select>
@@ -93,7 +93,7 @@
                         </form>
                         Prix: <br>
                         <script src='detail_voyage.js' type='text/javascript'></script>
-                        <h1 id='prix' data-base='".$tabvoyage[3]."'>
+                        <h1 id='prixbase' data-base='".$tabvoyage[3]."'>
                             ".$prix."€
                         </h1>
                     <div class='clear'></div>
