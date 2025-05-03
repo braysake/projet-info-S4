@@ -147,11 +147,12 @@ include("variable.php");
 	<script src="voyager.js" type="text/javascript"></script>
 	<form>
 		<select onchange="sortitem()" id="sort">
-			<option value="ascendant" selected>ascendant</option>
+			<option value="ascendant">ascendant</option>
 			<option value="descendant">descendant</option>
 		</select>
+		<br>
 		<select onchange="sortitem()" id="sortby">
-			<option value="durée" selected>durée</option>
+			<option value="durée">durée</option>
 			<option value="price">price</option>
 		</select>
 	</form>
@@ -165,23 +166,23 @@ include("variable.php");
 			$tabdata=explode(";",$tabdetail);
 
 			echo "
-						<div class='container' data-price='".$tabdata[3]."' data-durée='".$tabdata[4]."'>
-						<a href='detail_voyage.php?voyage=".$i."'>
-							<article>
-								<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
-								<p class='description'>
-									".$tabdata[2]."
-								</p>
-								<div class='clear'></div>
-								<p>
-									".$tabdata[0]."
-								</p>
-								<h4 id='prixmoy'>prix=".$tabdata[3]."€</h4>
-								<h4 id='duréemoy'>durée=".$tabdata[4]." jours</h4>
-							</article>
-							
-						</a>
-						</div>";
+				<div class='container' data-price='".$tabdata[3]."' data-durée='".$tabdata[4]."'>
+				<a href='detail_voyage.php?voyage=".$i."'>
+					<article>
+						<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
+						<p class='description'>
+							".$tabdata[2]."
+						</p>
+						<div class='clear'></div>
+						<p>
+							".$tabdata[0]."
+						</p>
+						<h4 id='prixmoy'>prix=".$tabdata[3]."€</h4>
+						<h4 id='duréemoy'>durée=".$tabdata[4]." jours</h4>
+					</article>
+					
+				</a>
+				</div>";
 		}
 		echo "</div>";
 	}
@@ -231,6 +232,13 @@ include("variable.php");
 	<?php
 	include("footer.php")
 	?>
+	<script type="text/javascript">
+		window.onload = function () {      
+		document.getElementById("sort").value = "ascendant";
+		document.getElementById("sortby").value = "price"; 
+		sortitem();
+		}
+	</script>
 </body>
 
 </html>
