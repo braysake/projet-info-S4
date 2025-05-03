@@ -5,7 +5,7 @@ function change(){
     check.push(document.getElementById("act2").checked);
     check.push(document.getElementById("act3").checked);
     let select=document.getElementById("qualité");
-    let choice=select.value
+    let choice=select.value;
     let prix = parseInt(show.dataset.base);
     switch (choice){
         case "économique":

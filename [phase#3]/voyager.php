@@ -18,6 +18,13 @@ include("variable.php");
 
 	<main>
 		<section>
+			<?php
+			if(isset($_GET["status"])){
+				if($_GET["status"]=="accepted"){
+					echo "<h1>Paiement accépté</h1>";
+				}
+			}
+			?>
 		<h2> Voyages </h2>
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
 		</section>
@@ -136,31 +143,47 @@ include("variable.php");
 			</form>
 		</section>
 	</section>";
+	?>
+	<script src="voyager.js" type="text/javascript"></script>
+	<form>
+		<select onchange="sortitem()" id="sort">
+			<option value="ascendant" selected>ascendant</option>
+			<option value="descendant">descendant</option>
+		</select>
+		<select onchange="sortitem()" id="sortby">
+			<option value="durée" selected>durée</option>
+			<option value="price">price</option>
+		</select>
+	</form>
+	<?php
 	$file=fopen('data/excel.csv','r');
 	if(!isset($_GET["checkfiltre"]) && !isset($_GET['durée']) && !isset($_GET['prix'])){
-		echo "quelque voyage à découvrir";
+		echo "<br> quelque voyage à découvrir";
+		echo"<div id='element'>";
 		for($i=0;$i<15;$i++){
 			$tabdetail=fgets($file);
 			$tabdata=explode(";",$tabdetail);
 
-			echo "<div class='container'>
-					<a href='detail_voyage.php?voyage=".$i."'>
-						<article>
-							<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
-							<p class='description'>
-								".$tabdata[2]."
-							</p>
-							<div class='clear'></div>
-							<p>
-								".$tabdata[0]."
-							</p>
-							<h4 id='prixmoy'>prix=".$tabdata[3]."€<h4>
-							<h4 id='duréemoy'>durée=".$tabdata[4]." jours<h4>
-						</article>		
-					</a>	
-				</div>
-				<div class='clear'></div>";
+			echo "
+						<div class='container' data-price='".$tabdata[3]."' data-durée='".$tabdata[4]."'>
+						<a href='detail_voyage.php?voyage=".$i."'>
+							<article>
+								<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
+								<p class='description'>
+									".$tabdata[2]."
+								</p>
+								<div class='clear'></div>
+								<p>
+									".$tabdata[0]."
+								</p>
+								<h4 id='prixmoy'>prix=".$tabdata[3]."€</h4>
+								<h4 id='duréemoy'>durée=".$tabdata[4]." jours</h4>
+							</article>
+							
+						</a>
+						</div>";
 		}
+		echo "</div>";
 	}
 	else{
 		if(isset($_GET['checkfiltre'])){
@@ -172,12 +195,14 @@ include("variable.php");
 		$durée=$_GET['durée'];
 		$prix=$_GET['prix'];
 		echo "<h2>Voici les resultats de votre recherche</h2>";
+		echo"<div id='element'>";
 		for($i=0;$i<15;$i=$i+3){
 			$tabdetail=fgets($file);
 			$tabdata=explode(";",$tabdetail);
 			foreach($check as $ch){
 				if(($tabdata[5]==$ch || $tabdata[6]==$ch || $tabdata[7]==$ch) && $tabdata[3]<=$prix && $tabdata[4]<=$durée){
-					echo  "<div class='container'>
+					echo  "
+						<div class='container' data-price='".$tabdata[3]."' data-durée='".$tabdata[4]."'>
 						<a href='detail_voyage.php?voyage=".$i."'>
 							<article>
 								<img class='rectangle' src=".$tabdata[1]." alt='image du voyage"."$i"."'/>
@@ -193,13 +218,12 @@ include("variable.php");
 							</article>
 							
 						</a>
-						
-					</div>
-					<div class='clear'></div>";
-					break;
+						</div>";
+						break;
 				}
 			}
 		}
+		echo "</div>";
 	}
 	?>	
 	</main>
@@ -215,5 +239,3 @@ include("variable.php");
 
 
 ?>
-
-<script src="unFichier.js" type="text/javascript"></script>
