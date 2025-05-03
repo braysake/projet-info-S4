@@ -58,10 +58,6 @@
                             ".($prix+300).".00€
                         </h1>
                     <div class='clear'></div>
-                    <p>
-                        Voyage en thailand
-                    </p>
-                    
                 </article>
 			</div>
             ";

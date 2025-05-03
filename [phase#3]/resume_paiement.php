@@ -105,8 +105,6 @@
                     </form>
                     
                     <div>
-                        
-
                         <form method='post'>
                             <input type='submit' name='add_panier' value='ajouter au panier'>
                         </form>
@@ -145,11 +143,7 @@
 
                 header("Location: voyager.php");
             }
-
             ?>
-            <p>
-                La transaction à été effectuer, merci d'avoir utilisé CY-sland, nous vous souhaitons un agréable séjour.
-            </p>
             </article>
         </main>
     </body>
