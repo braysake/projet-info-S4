@@ -108,16 +108,16 @@ if(isset($_POST["bouton_deconnexion"])){
 								<div class='container'>
 									<a href='".$retour."'>
 										<article>
-											<img class='rectangle' src='".$tab_voyage[$i][1]."' alt='image du voyage".$i."'/>
+											<img class='rectangle' src='".$tab_voyage[$tab_paiement[$i][0]][1]."' alt='image du voyage".$i."'/>
 											<p class='description'>
-												".$tab_voyage[$i][2]."
+												".$tab_voyage[$tab_paiement[$i][0]][2]."
 											</p>
 											<p class='description'>
 												prix: ".$tab_paiement[$i][2]."
 											</p>
 											<div class='clear'></div>
 											<p>
-												".$tab_voyage[$i][0]."
+												".$tab_voyage[$tab_paiement[$i][0]][0]."
 											</p>
 										</article>
 									</a>
