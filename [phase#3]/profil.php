@@ -43,7 +43,7 @@ if(isset($_POST["bouton_deconnexion"])){
 						<p>
 							<input type='file' id='fichier_pp' name='pp' accept='image/png, image/jpeg' required />
 						<br>
-							<input type='submit' name='bouton_pp' id='bouton'nclass='btn_form' value='utiliser' />
+							<input type='submit' name='bouton_pp' id='bouton' class='btn_form' value='utiliser' />
 						</p>
 						</form>
 						";
