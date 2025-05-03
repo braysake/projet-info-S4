@@ -98,11 +98,11 @@ if(isset($_POST["bouton_deconnexion"])){
 
 
 						for($i=0; $i<count($tab_paiement) ;$i++){
-							$activité=array_slice($tab_paiement[$i], 4, $tab_paiement[$i][3]);
-
-							ini_set('arg_separator.output','&');
-							$http_activité=http_build_query($activité);
-							$retour="http://localhost/resume_paiement.php?voyage=".($tab_paiement[$i][0]-1)."&qualité=".$tab_paiement[$i][1]."&".$http_activité."&nb_act=".$tab_paiement[$i][3]."&status=accepted&montant=".$tab_paiement[$i][2];
+							$activité="";
+							for($j=0 ; $j<$tab_paiement[$i][3];$j++){
+								$activité=$activité."&activité%5B%5D=".$tab_paiement[$i][4+$j];
+							}
+							$retour="http://localhost/resume_paiement.php?voyage=".($tab_paiement[$i][0]-1)."&qualité=".$tab_paiement[$i][1]."&".$activité."&status=accepted&montant=".$tab_paiement[$i][2];
 
 							echo "
 								<div class='container'>

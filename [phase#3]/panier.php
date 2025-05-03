@@ -60,10 +60,12 @@ function getAPIKey($vendeur){
 
 						$prixtot=0;
 						for($i=0; $i<count($tab_panier) ;$i++){
-							$activité=array_slice($tab_panier[$i], 4, $tab_panier[$i][3]);
-							ini_set('arg_separator.output','&');
-							$http_activité=http_build_query($activité);
-							$source="http://localhost/resume_paiement.php?voyage=".($tab_panier[$i][0]-1)."&qualité=".$tab_panier[$i][1]."&".$http_activité."&nb_act=".$tab_panier[$i][3]."&status=accepted&montant=".$tab_panier[$i][2];
+							$activité="";
+							for($j=0 ; $j<$tab_panier[$i][3];$j++){
+								$activité=$activité."&activité%5B%5D=".$tab_panier[$i][4+$j];
+							}
+							$source="http://localhost/resume_paiement.php?voyage=".($tab_panier[$i][0]-1)."&qualité=".$tab_panier[$i][1]."&".$activité."&status=accepted&montant=".$tab_panier[$i][2];
+							
 							$prixtot=$prixtot+$tab_panier[$i][2];
 							echo "
 								<div class='panier_bloc'>
