@@ -24,7 +24,7 @@ include("variable.php");
 					<label for="add_admin">ajouter un admin:</label>
 					<br>
 					<input type="email" name="mail" required/>
-					<input type="submit" name="bouton_add_admin" value="ajouter admin">
+					<input id="add_admin" type="submit" name="bouton_add_admin" value="ajouter admin">
 				</p>
 			</form>
 		</section>
@@ -56,7 +56,7 @@ include("variable.php");
 
 		<!--liste de tout les client -->
 		<section id="admin_box">
-			<table>
+			<table id="table">
 				<thead>
 					<th>prénom</th>
 					<th>nom</th>
@@ -123,6 +123,9 @@ include("variable.php");
 			}
 			?>
 			</ul>
+			
+		
+		<button onclick="disable()" >griser</button>
 		</section>
 	</main>
 
@@ -130,6 +133,5 @@ include("variable.php");
 	include("footer.php")
 	?>
 </body>
-
+<script src="admin.js" type="text/javascript"></script>
 </html>
-<script src="script.js"></script>
