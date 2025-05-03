@@ -426,13 +426,29 @@ img.description{
 	color: var(--color_1);
 	padding: 8px 16px;
 	margin: 10px;  
-	border: none;
 	border-radius: 20px;
 	font-size: 14px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-  }
+	border: none;
+}
 
 .btn_form:hover {
 	background-color: var(--color_5);
-  }
+}
+
+.select_form{
+	background-color: var(--color_7);
+	color: var(--color_1);
+	padding: 8px 16px;
+	margin: 10px;
+	font-size: 14px;
+	cursor: pointer;
+	appearance: none; /* Retire le style natif */
+	transition: background-color 0.3s ease;
+	border: none;
+}
+
+.select_form:hover{
+	background-color: var(--color_5);
+}

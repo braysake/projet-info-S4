@@ -41,7 +41,7 @@
                             <input id='act2' type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked onclick='change()'> ".$tabvoyage[6]."<br>
                             <input id='act3' type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked onclick='change()'> ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
-							<select name='qualité' id='qualité' onchange='change()'>
+							<select name='qualité' id='qualité' class='select_form' onchange='change()'>
 								<option value='économique'>économique</option>
 								<option value='moyen' selected>moyen</option>
 								<option value='deluxe'>deluxe</option>

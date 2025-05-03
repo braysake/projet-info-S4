@@ -29,11 +29,6 @@ include("variable.php");
 		<p>Venez découvrire les différents voyages que nous vous proposonts</p>
 		</section>
 
-		<!--a voir lors des prochaine phase
-			1) la section filtre recherche dois être invisible avant que l'on clique sur le bouton			
-			3) le champs de recherche dois s'update lors de l'appui touche "entrée"
-		-->
-
 		<section>
 			<h2>consulter la carte</h2>
 			<img id="map" src="image/carte.png" alt="map">
@@ -71,7 +66,7 @@ include("variable.php");
 		<form method='GET' action=''>
 			<input class='barre_de_recherhce' type='search' placeholder='filtre'/>
 		</form>
-		<button>mes préférence</button>
+		<button class='btn_form'>mes préférence</button>
 
 		<section>
 			<form method='GET' action='voyager.php' id='filtreapp'>
@@ -138,7 +133,7 @@ include("variable.php");
 
 				<p>
 					<span id='message'></span>
-					<input type='submit' id='bouton' value='appliquer les filtres' />
+					<input type='submit' class='btn_form' value='appliquer les filtres' />
 				</p>
 			</form>
 		</section>
@@ -146,12 +141,12 @@ include("variable.php");
 	?>
 	<script src="voyager.js" type="text/javascript"></script>
 	<form>
-		<select onchange="sortitem()" id="sort">
+		<select onchange="sortitem()" id="sort" class="select_form">
 			<option value="ascendant">ascendant</option>
 			<option value="descendant">descendant</option>
 		</select>
 		<br>
-		<select onchange="sortitem()" id="sortby">
+		<select onchange="sortitem()" id="sortby" class="select_form">
 			<option value="durée">durée</option>
 			<option value="price">price</option>
 		</select>
