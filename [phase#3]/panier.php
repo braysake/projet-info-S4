@@ -106,7 +106,7 @@ function getAPIKey($vendeur){
 				<input type='hidden' name='transaction' value='".$transaction."'>
 				<input type='hidden' name='retour' value='".$retour."'>
 				<input type='hidden' name='control' value='".$md5."'>
-				<input type='submit' name='verif' value='Payer'>
+				<input class='btn_form' type='submit' name='verif' value='Payer'>
 			</form>";
 			?>
 		</section>	

@@ -50,10 +50,9 @@
                             <input type='hidden' value='".$prix."' name='montant'>
                             <input type='hidden' value='".$id."' name='voyage'>
                             <input type='hidden' value='1' name='status'>
-                            <input type='submit' id='bouton_voyage' value='appliquer les filtres' />
+                            <input class='btn_form' type='submit' id='bouton_voyage' value='appliquer les filtres' />
                         </form>
                         Prix: <br>
-                        <script src='detail_voyage.js' type='text/javascript'></script>
                         <h1 id='prixbase' data-base='".$tabvoyage[3]."'>
                             ".($prix+300).".00€
                         </h1>

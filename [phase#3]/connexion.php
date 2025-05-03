@@ -38,7 +38,7 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 				<p>
 					<span id="message_connexion"></span>
-					<input type="submit" name="bouton_Connexion" value="Connexion" />
+					<input class="btn_form" type="submit" name="bouton_Connexion" value="Connexion" />
 				</p>
 
 				<?php

@@ -94,8 +94,8 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 				<p>
 					<span id="message_inscription"></span>
-					<input type="reset" value="The Great Reset !" />
-					<input type="submit" name="bouton_inscription" value="Créer le compte !" />
+					<input class="btn_form" type="reset" value="The Great Reset !" />
+					<input class="btn_form" type="submit" name="bouton_inscription" value="Créer le compte !" />
 				</p>
 
 				<?php

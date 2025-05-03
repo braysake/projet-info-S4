@@ -130,14 +130,14 @@ if(isset($_POST["bouton_deconnexion"])){
 
 				<form class="panier" action='panier.php' method="post">
 					<p>
-						<input type="submit" name="panier" id="bouton" value="voir mon panier" />
+						<input class="btn_form" type="submit" name="panier" value="voir mon panier" />
 					</p>
 				</form>
 
 
 				<form class="deconnexion" method="post">
 					<p>
-						<input type="submit" name="bouton_deconnexion" id="bouton" value="deconnexion" />
+						<input class="btn_form" type="submit" name="bouton_deconnexion" value="deconnexion" />
 					</p>
 				</form>
 			</section>

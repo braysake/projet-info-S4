@@ -101,12 +101,12 @@
                         <input type='hidden' name='transaction' value='".$transaction."'>
                         <input type='hidden' name='retour' value='".$retour."'>
                         <input type='hidden' name='control' value='".$md5."'>
-                        <input type='submit' name='verif' value='Payer'>
+                        <input class='btn_form' type='submit' name='verif' value='Payer'>
                     </form>
                     
                     <div>
                         <form method='post'>
-                            <input type='submit' name='add_panier' value='ajouter au panier'>
+                            <input class='btn_form' type='submit' name='add_panier' value='ajouter au panier'>
                         </form>
                     </div>";
                 }
