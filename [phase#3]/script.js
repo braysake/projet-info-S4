@@ -32,7 +32,7 @@ export function verif_mail(input, message){
 }
 
 export function verif_mail_identique(input1, input2, message){
-	if (input1!=input2){
+	if (input1.value!=input2.value && message.textContent==``){
 		message.textContent=`adresse mail différents`;
         return 1;
 	}
@@ -65,7 +65,7 @@ export function count_mdp(count, input){
 }
 
 export function verif_mdp_identique(input1, input2, message){
-	if (input1!=input2){
+	if (input1.value!=input2.value && message.textContent==``){
 		message.textContent=`mots de passe différents`;
 		bouton.setAttribute("disabled","true");
         return 1;

@@ -25,12 +25,14 @@ function verif_information(){
     //verif mail
     res+=lib.verif_mail(form[4],espaceMessage);
     res+=lib.verif_mail(form[5],espaceMessage);
+    res+=lib.verif_mail_identique(form[4],form[5],espaceMessage);
 
     //verif mdp
     res+=lib.verif_mdp(form[6],espaceMessage);
     lib.count_mdp(count3, form[6]);
     res+=lib.verif_mdp(form[7],espaceMessage);
     lib.count_mdp(count4, form[7]);
+    res+=lib.verif_mdp_identique(form[6],form[7],espaceMessage);
 
     //verif check box
     res+=lib.verif_check(form[8],espaceMessage,res);
