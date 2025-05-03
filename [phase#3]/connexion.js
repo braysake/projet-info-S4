@@ -18,13 +18,16 @@ function verif_information(){
 
     if(res==0){
         form[form.length-1].removeAttribute("disabled");
+        form[form.length-1].style.color="";
     }
     else{
         form[form.length-1].setAttribute("disabled","true");
+        form[form.length-1].style.color="grey";
     }
 }
 
 form[form.length-1].setAttribute("disabled","true");
+form[form.length-1].style.color="grey";
 form.forEach(i => i.addEventListener("input",verif_information));
 
 let oeil=document.getElementById("oeil_mdp_connexion");
