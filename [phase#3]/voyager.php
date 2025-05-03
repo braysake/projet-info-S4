@@ -22,6 +22,39 @@ include("variable.php");
 			if(isset($_GET["status"])){
 				if($_GET["status"]=="accepted"){
 					echo "<h1>Paiement accépté</h1>";
+
+					$qualité=$_GET['qualité'];
+					$id=$_GET["voyage"];
+					$montant=$_GET['montant'];
+
+					if (isset($_GET["activité"])){
+						$activité=$_GET['activité'];
+						$nb_act=count($activité);
+					}
+					else{
+						$nb_act=0;
+					}
+
+					$array_voyage=array($id+1,$qualité,$montant,$nb_act);
+					if(isset($_GET["activité"])){
+						for($i=0;$i<$nb_act;$i++){
+							array_push($array_voyage,$activité[$i]);
+						}
+					}
+
+					$out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
+					$tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+					$check=0;
+					$str_data=implode(' ',$array_voyage);
+					for($i=0;$i<count($tab_res);$i++){
+						if($str_data." |\n"== $tab_res[$i]){
+							$check=1;
+						}
+					}
+					if($check!=1){
+						fwrite($out,implode(' ',$array_voyage));
+						fwrite($out," ".$caractere_fin."\n");
+					}
 				}
 			}
 			?>

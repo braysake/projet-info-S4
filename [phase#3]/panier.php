@@ -90,24 +90,41 @@ function getAPIKey($vendeur){
 							";
 						}
 						$prixtot="".$prixtot.".00";
-						$retour="http://localhost/website/panier.php";
+						$retour="http://localhost/panier.php";
 						$api=getapikey($vendeur);
 						$md5=md5($api."#".$transaction."#".$prixtot."#".$vendeur."#".$retour."#");
+					}
+
+					//ajoute les voyage du panier dans la liste des voyages payer, puis supprime le panier
+					if(isset($_GET["status"])){
+						if($_GET["status"]=="accepted"){
+							echo "<h1>Paiement accépté</h1>";
+
+							$panier=file_get_contents('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+							file_put_contents('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv', $panier, FILE_APPEND);
+
+							unlink('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+						}
 					}
 				?>
 
 			</section>
 			
 			<?php
-			echo "
-				<form action='https://www.plateforme-smc.fr/cybank/index.php' method='post'>
-				<input type='hidden' name='montant' value='".$prixtot."'>
-				<input type='hidden' name='vendeur' value='".$vendeur."'>
-				<input type='hidden' name='transaction' value='".$transaction."'>
-				<input type='hidden' name='retour' value='".$retour."'>
-				<input type='hidden' name='control' value='".$md5."'>
-				<input class='btn_form' type='submit' name='verif' value='Payer'>
-			</form>";
+			if(file_exists($fichier_panier)){
+				echo "
+					<form action='https://www.plateforme-smc.fr/cybank/index.php' method='post'>
+					<input type='hidden' name='montant' value='".$prixtot."'>
+					<input type='hidden' name='vendeur' value='".$vendeur."'>
+					<input type='hidden' name='transaction' value='".$transaction."'>
+					<input type='hidden' name='retour' value='".$retour."'>
+					<input type='hidden' name='control' value='".$md5."'>
+					<input class='btn_form' type='submit' name='verif' value='Payer'>
+				</form>";
+			}
+			else if(!isset($_GET["status"]) || $_GET["status"]!="accepted"){
+				echo "<p>votre panier est vide</p>";
+			}
 			?>
 		</section>	
 	
