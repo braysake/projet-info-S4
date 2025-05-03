@@ -59,4 +59,3 @@ include("variable.php");
 </body>
 
 </html>
-<script src="script.js"></script>
