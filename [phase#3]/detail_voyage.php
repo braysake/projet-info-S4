@@ -16,35 +16,6 @@
     }
     $tabvoyage=explode(";",$detail);
     $prix=floatval($tabvoyage[3]);
-    if (isset($_GET["qualité"])){
-        $qualité=$_GET["qualité"];
-        switch ($qualité) {
-            case "économique":
-                $prix=floatval($tabvoyage[3])-floatval($tabvoyage[3])/2;
-            break;
-            case "moyen":
-                $prix=floatval($tabvoyage[3]);
-            break;
-            case "deluxe":
-                $prix=floatval($tabvoyage[3])+floatval($tabvoyage[3])/2;
-            break;
-            }
-    }
-    else{
-        $qualité="moyen";
-    }
-    $prix+=300;
-    if (isset($_GET["activité"])){
-        $activité=$_GET["activité"];
-        $prix-=300;
-        foreach($activité as $act){
-            $prix+=100;
-        }
-    }
-    else{
-        $activité=array("$tabvoyage[5]","$tabvoyage[6]","$tabvoyage[7]");
-    }
-    $nb_act=count($activité);
     
     if(isset($_POST['verif'])){
         $_SESSION["paiement"]=1;
@@ -78,12 +49,13 @@
 							</select>
                             <input type='hidden' value='".$prix."' name='montant'>
                             <input type='hidden' value='".$id."' name='voyage'>
+                            <input type='hidden' value='1' name='status'>
                             <input type='submit' id='bouton_voyage' value='appliquer les filtres' />
                         </form>
                         Prix: <br>
                         <script src='detail_voyage.js' type='text/javascript'></script>
                         <h1 id='prixbase' data-base='".$tabvoyage[3]."'>
-                            ".$prix."€
+                            ".($prix+300).".00€
                         </h1>
                     <div class='clear'></div>
                     <p>
@@ -92,46 +64,7 @@
                     
                 </article>
 			</div>
-            <div>
-                
-
-                <form method='post'>
-                    <input type='submit' name='add_panier' value='ajouter au panier'>
-                </form>
-            </div>";
-            echo "
-                <a href='confirmation' >";
-            if(isset($_POST["add_panier"])){
-                $montant=$prix;
-
-                $file=fopen('data/excel.csv','r');
-                for ($i=0; $i<=$id;$i++){
-                    $detail=fgets($file);
-                }
-                $tabvoyage=explode(";",$detail);
-
-                $array_voyage=array($id+1,$qualité,$montant,$nb_act);
-                for($i=0;$i<$nb_act;$i++){
-                    array_push($array_voyage,$activité[$i]);
-                }
-    
-                $out=fopen('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
-                $tab_res=file('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
-                $check=0;
-                $str_data=implode(' ',$array_voyage);
-                for($i=0;$i<count($tab_res);$i++){
-                    if($str_data." |\n"== $tab_res[$i]){
-                        $check=1;
-                    }
-                }
-
-                if($check!=1){
-                    fwrite($out,implode(' ',$array_voyage));
-                    fwrite($out," ".$caractere_fin."\n");
-                }
-
-                header("Location: voyager.php");
-            }
+            ";
 
     include('footer.php');
     echo "<script src='detail_voyage.js'> </script>";

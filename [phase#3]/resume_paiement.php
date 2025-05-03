@@ -13,14 +13,35 @@
             <?php
             if(isset($_GET["status"])){
                 if($_GET["status"]!="accepted"){
-                    header("Location: detail_voyage.php?voyage=".$_GET["voyage"]."&error=1");
                 }
             }
-            $activité=$_GET["activité"];
-            $nb_act=count($activité);
             $qualité=$_GET['qualité'];
             $id=$_GET["voyage"];
             $montant=$_GET['montant'];
+            if (isset($_GET["qualité"])){
+                $qualité=$_GET["qualité"];
+                switch ($qualité) {
+                    case "économique":
+                        $montant=$montant-$montant/2;
+                    break;
+                    case "moyen":
+                        $montant=$montant;
+                    break;
+                    case "deluxe":
+                        $montant=$montant+$montant/2;
+                    break;
+                    }
+            }
+            if (isset($_GET["activité"])){
+                $activité=$_GET["activité"];
+                $nb_act=count($activité);
+                for($i=0;$i<$nb_act;$i++){
+                    $montant+=100;
+                }
+            }
+            else{
+                $nb_act=0;
+            }
             $file=fopen('data/excel.csv','r');
             for ($i=0; $i<=$id;$i++){
                 $detail=fgets($file);
@@ -32,17 +53,20 @@
                 <h4>".$tabvoyage[0]."</h4> <br>
                 <p>
                     avec les activités suivantes: <br>";
-            for($i=0;$i<$nb_act;$i++){
-                echo "".$activité[$i]."<br>";
+                if(isset($_GET["activité"])){
+                    for($i=0;$i<$nb_act;$i++){
+                        echo "".$activité[$i]."<br>";
                     }
-
+                }
             echo"avec une qualité de logement ".$qualité."<br>
                 au prix de: ".$montant."€ <br>
                 </p>
                 ";
             $array_voyage=array($id+1,$qualité,$montant,$nb_act);
-            for($i=0;$i<$nb_act;$i++){
-                array_push($array_voyage,$activité[$i]);
+            if(isset($_GET["activité"])){
+                for($i=0;$i<$nb_act;$i++){
+                    array_push($array_voyage,$activité[$i]);
+                }
             }
             $out=fopen('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
             $tab_res=file('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
@@ -63,23 +87,65 @@
                 }
                 return "zzzz";
             }
-            $api=getapikey($vendeur);
-            $prix="".$montant.".00";
-            ini_set('arg_separator.output','&');
-            $http_activité=http_build_query($activité);
-            $retour="http://localhost/website/voyager.php?session=s";
-            $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
-            echo "
-                <form action='https://www.plateforme-smc.fr/cybank/index.php' method='post'>    
-                <input type='hidden' name='montant' value='".$prix."'>
-                <input type='hidden' name='vendeur' value='".$vendeur."'>
-                <input type='hidden' name='transaction' value='".$transaction."'>
-                <input type='hidden' name='retour' value='".$retour."'>
-                <input type='hidden' name='control' value='".$md5."'>
-                <input type='submit' name='verif' value='Payer'>
-            </form>
-            "
-            
+            if(isset($_GET["status"])){
+                if($_GET["status"]!="accepted"){
+                    $api=getapikey($vendeur);
+                    $prix="".$montant.".00";
+                    ini_set('arg_separator.output','&');
+                    $retour="http://localhost/website/voyager.php?session=s";
+                    $md5=md5($api."#".$transaction."#".$prix."#".$vendeur."#".$retour."#");
+                    echo "
+                        <form action='https://www.plateforme-smc.fr/cybank/index.php' method='post'>    
+                        <input type='hidden' name='montant' value='".$prix."'>
+                        <input type='hidden' name='vendeur' value='".$vendeur."'>
+                        <input type='hidden' name='transaction' value='".$transaction."'>
+                        <input type='hidden' name='retour' value='".$retour."'>
+                        <input type='hidden' name='control' value='".$md5."'>
+                        <input type='submit' name='verif' value='Payer'>
+                    </form>
+                    
+                    <div>
+                        
+
+                        <form method='post'>
+                            <input type='submit' name='add_panier' value='ajouter au panier'>
+                        </form>
+                    </div>";
+                }
+            }
+            if(isset($_POST["add_panier"])){
+                $montant=$prix;
+
+                $file=fopen('data/excel.csv','r');
+                for ($i=0; $i<=$id;$i++){
+                    $detail=fgets($file);
+                }
+                $tabvoyage=explode(";",$detail);
+
+                $array_voyage=array($id+1,$qualité,$montant,$nb_act);
+                if(isset($_GET["activité"])){
+                    for($i=0;$i<$nb_act;$i++){
+                        array_push($array_voyage,$activité[$i]);
+                    }
+                }
+                $out=fopen('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv','a+');   
+                $tab_res=file('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+                $check=0;
+                $str_data=implode(' ',$array_voyage);
+                for($i=0;$i<count($tab_res);$i++){
+                    if($str_data." |\n"== $tab_res[$i]){
+                        $check=1;
+                    }
+                }
+
+                if($check!=1){
+                    fwrite($out,implode(' ',$array_voyage));
+                    fwrite($out," ".$caractere_fin."\n");
+                }
+
+                header("Location: voyager.php");
+            }
+
             ?>
             <p>
                 La transaction à été effectuer, merci d'avoir utilisé CY-sland, nous vous souhaitons un agréable séjour.
