@@ -24,7 +24,7 @@ include("variable.php");
 					<label for="add_admin">ajouter un admin:</label>
 					<br>
 					<input type="email" name="mail" required/>
-					<input id="add_admin" type="submit" name="bouton_add_admin" value="ajouter admin">
+					<input id="add_admin" class="btn_form" type="submit" name="bouton_add_admin" value="ajouter admin">
 				</p>
 			</form>
 		</section>
