@@ -94,7 +94,7 @@ include("variable.php");
 				</tbody>
 			</table>
 
-			<ul class="pagination">
+			<ul id="pagination" class="pagination">
 			<?php
 			#Bouton "<<" pour revenir en arrière (s'affiche seulement si on n'est pas à la première page)
 			if ($currentPage > 1){
@@ -133,5 +133,6 @@ include("variable.php");
 	include("footer.php")
 	?>
 </body>
-<script src="admin.js" type="text/javascript"></script>
+
 </html>
+<script src="admin.js" type="text/javascript"></script>
