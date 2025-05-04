@@ -42,6 +42,7 @@ function getAPIKey($vendeur){
 				<?php
 					#récupère les donner des voyages de l'utilisateur
 					$fichier_panier="data/panier_".$tab_inscrit[$_SESSION["id"]][0].".csv";
+					$fichier_payement="data/".$tab_inscrit[$_SESSION["id"]][0].".csv";
 					$fichier_voyage="data/excel.csv";
 					if(file_exists($fichier_panier)){
 						$tab_panier = file($fichier_panier);
@@ -71,21 +72,25 @@ function getAPIKey($vendeur){
 								<div class='panier_bloc'>
 									<a href='".$source."'>
 										<article>
-											<img class='rectangle' src='".$tab_voyage[$i][1]."' alt='image du voyage".$i."'/>
+											<img class='rectangle' src='".$tab_voyage[$tab_panier[$i][0]-1][1]."' alt='image du voyage".$tab_voyage[$tab_panier[$i][0]-1][1]."'/>
 											<p class='description'>
-												".$tab_voyage[$i][2]."
+												".$tab_voyage[$tab_panier[$i][0]-1][2]."
 											</p>
 											<p class='description'>
 												prix: ".$tab_panier[$i][2]."
 											</p>
 											<div class='clear'></div>
 											<p>
-												".$tab_voyage[$i][0]."
+												".$tab_voyage[$tab_panier[$i][0]-1][0]."
 											</p>
 										</article>
 									</a>
 
-									<button class='panier_btn'>X</button>
+									<form action='panier_test.php' method='post'>
+										<input type='hidden' name='link' value='".$fichier_panier."'>
+										<input type='hidden' name='data_id' value='".$i."'>
+										<input type='submit' class='panier_btn' name='panier_btn' value='X' />
+									</form>
 								</div>
 							";
 						}
@@ -100,14 +105,27 @@ function getAPIKey($vendeur){
 						if($_GET["status"]=="accepted"){
 							echo "<h1>Paiement accépté</h1>";
 
-							$panier=file_get_contents('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
-							file_put_contents('data/'.$tab_inscrit[$_SESSION["id"]][0].'.csv', $panier, FILE_APPEND);
+							$panier=file_get_contents($fichier_panier);
+							file_put_contents($fichier_payement, $panier, FILE_APPEND);
 
-							unlink('data/panier_'.$tab_inscrit[$_SESSION["id"]][0].'.csv');
+							unlink($fichier_panier);
+						}
+					}
+
+					//suprime le voyage correspondant
+					if(isset($_POST["panier_btn"]) && file_exists($fichier_panier)){
+						$panier=file($fichier_panier);
+						if(isset($panier[$_POST["data_id"]])){
+							if(count($panier)!=1){
+								unset($panier[$_POST["data_id"]]);
+								file_put_contents($fichier_panier, implode("",$panier));
+							}
+							else{
+								unlink($fichier_panier);
+							}
 						}
 					}
 				?>
-
 			</section>
 			
 			<?php
@@ -136,4 +154,3 @@ function getAPIKey($vendeur){
 </body>
 
 </html>
-<script src="script.js"></script>
