@@ -6,7 +6,7 @@ if(!isset ($_SESSION["est_connecter"]) ||  $_SESSION["est_connecter"]!=1){
 	header("Location: connexion.php");
 }
 
-#deconnexion du profils
+#deconnexion du profil
 if(isset($_POST["bouton_deconnexion"])){
 	session_destroy();
 	header("Location: connexion.php");
@@ -55,28 +55,106 @@ if(isset($_POST["bouton_deconnexion"])){
 					}
 
 					#afficher les information du profil
+					$date=implode("-",array_reverse(explode("/",$tab_inscrit[$_SESSION["id"]][4])));
 					echo "
-							<ul>
-								<li>
-									Prénom: ".$tab_inscrit[$_SESSION["id"]][2]."
-								</li>
-								<li>
-									Nom: ".$tab_inscrit[$_SESSION["id"]][3]."
-								</li>
-								<li>
-									Pseudo: ".$tab_inscrit[$_SESSION["id"]][6]."
-								</li>
-								<li>
-									date de naissance: ".$tab_inscrit[$_SESSION["id"]][4]."
-								</li>
-								<li>
-									nationalité: ".$tab_inscrit[$_SESSION["id"]][5]."
-								</li>
-								<li>
-									mail: ".$tab_inscrit[$_SESSION["id"]][0]."
-								</li>
-							</ul>
+						<form id='form_profil' method='post'>
+							<p>
+								<label>Prénom:</label>
+								<input type='text' id='Prénom'  name='prenom' value='".$tab_inscrit[$_SESSION["id"]][2]."' readonly>
+								<span id='btn_Prénom' class='panier_btn' >🖉</span>
+							</p>
+							<p>
+								<label>Nom:</label>
+								<input type='text' id='nom' name='nom' value='".$tab_inscrit[$_SESSION["id"]][3]."' readonly>
+								<span id='btn_nom' class='panier_btn' >🖉</span>
+							</p>
+							<p>
+								<label>Pseudo:</label>
+								<input type='text' id='Pseudo' name='pseudo 'value='".$tab_inscrit[$_SESSION["id"]][6]."' readonly>
+								<span id='btn_Pseudo' class='panier_btn' >🖉</span>
+							</p>
+							<p>
+								<label>date de naissance:</label>
+								<input type='date' id='birth' name='birth' value='".$date."' readonly>
+								<span id='btn_birth' class='panier_btn' >🖉</span>
+							</p>
+							<p>
+								<label>nationalité:</label>
+								<select id='nationalité' name='nationalite' autocomplete='".$tab_inscrit[$_SESSION["id"]][5]."' required disabled/>
+										<option> France </option>
+										<option> Allemagne </option>
+										<option> Belgique </option>
+										<option> Chine </option>
+										<option> Etat-Unis </option>
+										<option> Grand-Bretagne </option>
+										<option> Italie </option>
+										<option> Japon </option>
+										<option> Mexique </option>
+										<option> Russie </option>
+								</select>
+								<span id='btn_nationalité' class='panier_btn' >🖉</span>
+							</p>
+							<p>
+								<label>mail:</label>
+								<input type='mail' id='mail' name='mail' value='".$tab_inscrit[$_SESSION["id"]][0]."' readonly>
+							</p>
+
+							<p>
+							<span id='message_profil'></span>
+							<button class='btn_form'>annuler les modification</button>
+							<input type='submit' class='btn_form' name='bouton_profil' value='enregistrer les modification'/>
+							</p>
+						</form>
 						";
+
+
+
+					#si le formulaire est envoyer traiter les données
+					if(isset($_POST["bouton_profil"])){
+	
+						#verif mail et mot de passe
+						if(strlen($_POST["prenom"])<2){
+							echo "<p>votre prenom doit minimum avoir deux charactère</p>";
+						}
+						elseif(strpos($_POST["prenom"], ' ')){
+							echo "<p>votre prenom ne doit pas contenir d'espace</p>";
+						}
+						elseif(strlen($_POST["nom"])<2){
+							echo "<p>votre nom doit minimum avoir deux charactère</p>";
+						}
+						elseif(strpos($_POST["nom"], ' ')){
+							echo "<p>votre nom ne doit pas contenir d'espace</p>";
+						}
+						elseif(strtotime($_POST["birth"])<strtotime('1900-01-01') || strtotime($_POST["birth"])>strtotime(date("d-m-Y"))){
+							echo "<p>votre date de naissance n'est pas valide</p>";
+						}
+						else{
+							#modifier les information du client
+							$tab_inscrit[$_SESSION["id"]][2]=$_POST["prenom"];
+							$tab_inscrit[$_SESSION["id"]][3]=$_POST["nom"];
+
+							if(isset($_POST["pseudo"]) && $_POST["pseudo"]!=NULL){
+								$pseudo=$_POST["pseudo"];
+							}
+							else{
+								$pseudo=$caractere_def;
+							}
+							$tab_inscrit[$_SESSION["id"]][6]=$pseudo;
+
+							$date=implode("/",array_reverse(explode("-",$_POST["birth"])));
+							$tab_inscrit[$_SESSION["id"]][4]=$date;
+
+							if(isset($_POST["nationalite"])){
+								$tab_inscrit[$_SESSION["id"]][5]=$_POST["nationalite"];
+							}
+
+							$res="";
+							for($i=0 ; $i<count($tab_inscrit) ;$i++){
+								$res=$res.implode($separateur, $tab_inscrit[$i]);
+							}
+							file_put_contents($fichier_inscrit, $res);
+						}
+					}
 
 					#récupère les donner des voyages de l'utilisateur
 					$fichier_paiement="data/".$tab_inscrit[$_SESSION["id"]][0].".csv";
@@ -159,4 +237,4 @@ if(isset($_POST["bouton_deconnexion"])){
 </body>
 
 </html>
-<script src="script.js"></script>
+<script type="module" src="profil.js"></script>

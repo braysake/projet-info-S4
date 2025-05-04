@@ -5,7 +5,7 @@
     --color_4: #5a562d;
 	--color_5: #728ff8;
 	--color_6: #edf1ff;
-	--color_7: #2b468e; 
+	--color_7: #2b468e;
 }
 
 body {
@@ -83,7 +83,7 @@ table, th, td {
 
 .rectangle:hover {
     transform: scale(1.1);
-	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.406);
+	box-shadow: 0px 10px 20px var(--color_2);
 }
 /*fin propriété du rectangle*/
 
@@ -110,7 +110,7 @@ h3{
 }
 
 h1, h2, h3, p {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+    text-shadow: 2px 2px 4px var(--color_2); 
 } 
 
 article{
@@ -193,7 +193,7 @@ nav > ul li:hover .sous {
 }
 .sous a:hover {
 	border-bottom: none;
-	background-color: RGBa(200, 200, 200, 0.1);
+	background-color: var(--color_6);
 }
 .deroulant > a::after {
 	content: " ▼";
@@ -342,13 +342,13 @@ img.description{
 	padding: 0;
 	border-radius: 8px;
 	overflow: hidden;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 2px 5px var(--color_2);
 }
 
 .pagination li {
 	padding: 10px 15px;
 	text-align: center;
-	border: 1px solid #ddd;
+	border: 1px solid var(--color_2);
 	background:  var(--color_1);
 }
 
@@ -372,17 +372,17 @@ img.description{
 
 .pagination li.active {
 	background-color:  var(--color_3);
-	color: white;
+	color: var(--color_1);
 	font-weight: bold;
 	border-color:  var(--color_3);
 }
 
 .pagination li.active a {
-	color: white;
+	color: var(--color_1);
 }
 
 .pagination li:hover {
-	background-color: #f1f1f1;
+	background-color: var(--color_1);
 }
 /*fin nav liste des inscrit*/
 
@@ -399,7 +399,7 @@ img.description{
 .panier_btn {
 	width: 30px;
 	height: 30px;
-	background-color:  var(--color_3);
+	background-color:  var(--color_7);
 	color: var(--color_2);
 	font-size: 20px;
 	font-weight: bold;
