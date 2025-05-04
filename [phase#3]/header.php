@@ -10,6 +10,7 @@
 	<header>
 		<img src="image/logo cy sland.png" class="logo" id="logo" alt="logo"/>
 		<h1> CY sland </h1>
+		<span class="btn_form" id="mode_sombres">mode sombres</span>
 		<nav>
 			<ul>
 				<!-- Menu déroulant pour l'accueil -->
@@ -30,3 +31,4 @@
 		</nav>
 	</header>
 </html>
+<script type="module" src="color_change.js"></script>
