@@ -104,58 +104,62 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 
 					#verif mail et mot de passe
 					if($_POST["mail"] != $_POST["mail_Confirmation"]){
-						die("<p>vous devez entrer deux fois la même adresse mail</p>");
+						echo "<p>vous devez entrer deux fois la même adresse mail</p>";
 					}
 					elseif($_POST["password"] != $_POST["password_confirm"]){
-						die("<p>vous devez entrer deux fois la même adresse mots de passe</p>");
+						echo "<p>vous devez entrer deux fois la même adresse mots de passe</p>";
 					}
 					elseif(strlen($_POST["prenom"])<2){
-						die("<p>votre prenom doit minimum avoir deux charactère</p>");
+						echo "<p>votre prenom doit minimum avoir deux charactère</p>";
 					}
 					elseif(strpos($_POST["prenom"], ' ')){
-						die("<p>votre prenom ne doit pas contenir d'espace</p>");
+						echo "<p>votre prenom ne doit pas contenir d'espace</p>";
 					}
 					elseif(strlen($_POST["nom"])<2){
-						die("<p>votre nom doit minimum avoir deux charactère</p>");
+						echo "<p>votre nom doit minimum avoir deux charactère</p>";
 					}
 					elseif(strpos($_POST["nom"], ' ')){
-						die("<p>votre nom ne doit pas contenir d'espace</p>");
+						echo "<p>votre nom ne doit pas contenir d'espace</p>";
 					}
 					elseif(strtotime($_POST["date_de_naissance"])<strtotime('1900-01-01') || strtotime($_POST["date_de_naissance"])>strtotime(date("d-m-Y"))){
-						die("<p>votre date de naissance n'est pas valide</p>");
+						echo "<p>votre date de naissance n'est pas valide</p>";
 					}
 					else{
 						#verif si mail déjà utiliser
 						$i=0;
+						$res=1;
 						while($i<count($tab_inscrit) && $tab_inscrit[$i][0] != $_POST["mail"]){
 							$i++;
 						}
 						if($i<count($tab_inscrit)){
-							die("<p>Ce mail est déjà utiliser");
+							echo "<p>Ce mail est déjà utiliser</p>";
+							$res=0;
 						}
 
 						#crée le compte
-						if(isset($_POST["pseudo"]) && $_POST["pseudo"]!=NULL){
-							$pseudo=$_POST["pseudo"];
+						if($res){
+							if(isset($_POST["pseudo"]) && $_POST["pseudo"]!=NULL){
+								$pseudo=$_POST["pseudo"];
+							}
+							else{
+								$pseudo=$caractere_def;
+							}
+							$temp=explode("-",$_POST["date_de_naissance"]);
+							$date_naissance=$temp[2]."/".$temp[1]."/".$temp[0];
+							unset($temp);
+
+							$temp=date("H:i.d.m.Y");
+
+							$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0".$separateur.$temp.$separateur.$temp.$separateur.$caractere_fin."\n";
+							file_put_contents($fichier_inscrit, $info, FILE_APPEND);
+
+							#se connecer
+							$_SESSION["est_connecter"]=1;
+
+							$_SESSION["id"]=$i;
+							#$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
+							header("Location: profil.php");
 						}
-						else{
-							$pseudo=$caractere_def;
-						}
-						$temp=explode("-",$_POST["date_de_naissance"]);
-						$date_naissance=$temp[2]."/".$temp[1]."/".$temp[0];
-						unset($temp);
-
-						$temp=date("H:i.d.m.Y");
-
-						$info=$_POST["mail"].$separateur.$_POST["password"].$separateur.$_POST["prenom"].$separateur.$_POST["nom"].$separateur.$date_naissance.$separateur.$_POST["nationalite"].$separateur.$pseudo.$separateur."0".$separateur.$temp.$separateur.$temp.$separateur.$caractere_fin."\n";
-						file_put_contents($fichier_inscrit, $info, FILE_APPEND);
-
-						#se connecer
-						$_SESSION["est_connecter"]=1;
-
-						$_SESSION["id"]=$i;
-						#$_SESSION["information"]=array($_POST["mail_Confirmation"], $_POST["password"], $_POST["prenom"], $_POST["nom"], $_POST["date_de_naissance"], $_POST["nationalite"]);
-						header("Location: profil.php");
 					}
 				}
 				?>

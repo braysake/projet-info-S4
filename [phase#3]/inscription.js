@@ -50,6 +50,7 @@ function verif_information(){
 form[form.length-1].setAttribute("disabled","true");
 form[form.length-1].style.color="grey";
 form.forEach(i => i.addEventListener("input",verif_information));
+form[form.length-2].addEventListener("click",() => setTimeout(verif_information,0));
 
 let oeil1=document.getElementById("oeil_mdp_inscription");
 oeil1.addEventListener("click", () => lib.voir_mdp(form[6],oeil1));

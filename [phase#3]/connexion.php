@@ -51,10 +51,10 @@ if(isset ($_SESSION["est_connecter"]) &&  $_SESSION["est_connecter"]==1){
 					}
 					
 					if($i==count($tab_inscrit)){
-						die("<p>mail incorrect</p>");
+						echo "<p>mail incorrect</p>";
 					}
-					elseif($tab_inscrit[$i][1] != $_POST["password"]){
-						die("<p>mot de passe incorrect</p>");
+					else if($tab_inscrit[$i][1] != $_POST["password"]){
+						echo "<p>mot de passe incorrect</p>";
 					}
 					else{
 						$tab_inscrit[$i][9]=date("H:i.d.m.Y");

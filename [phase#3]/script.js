@@ -10,12 +10,13 @@ export function verif_nom_prenom(input, message){
 }
 
 export function verif_naissance(input, message){
-    /*if(input.value < "1900-01-01"){
+    let compare=input.value.split('-');
+    if(compare[0]<"1900" || compare[0]> new Date().getFullYear()-18){
         if (input.value.length!=0 && message.textContent==``){
             message.textContent=`date de naissance impossible`;
         }
         return 1;
-    }*/
+    }
     return 0;
 }
 
