@@ -31,6 +31,7 @@ function turn_to_light(){
 }
 
 function changer_mode(){
+    alert(getCookie("mode"));
     if(getCookie("mode") == "0"){
         turn_to_dark();
         document.cookie="mode=1";
@@ -40,9 +41,9 @@ function changer_mode(){
         document.cookie="mode=0";
     }
 }
-
-if(getCookie("mode") == "1"){
-    turn_to_dark();
+if(getCookie("mode") != "1"){
+    document.cookie="mode=0";
+    turn_to_light();
 }
 
 let dark_mode=document.getElementById("mode_sombres");
