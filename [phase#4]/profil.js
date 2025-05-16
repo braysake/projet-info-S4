@@ -46,6 +46,29 @@ function verif_information(){
     }
 }
 
+function requete(){
+    const formData = new FormData(document.getElementById("form_profil"));
+
+    fetch('requet_profil.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erreur HTTP : " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log(data);
+
+      document.getElementById('message_profil').innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Erreur avec fetch :"+ error);
+    });
+}
+
 /*permet de modifier les champ*/
 btn_prenom.addEventListener("click", () => modif("Prénom"));
 btn_nom.addEventListener("click", () => modif("nom"));
@@ -56,5 +79,8 @@ btn_nationalité.addEventListener("click", () => modif("nationalité"));
 /*verifie que les nouveaux champs sont correct*/
 form.forEach(i => i.addEventListener("input",verif_information));
 
-
-
+/*requete asynchrone de mise a jour*/
+document.getElementById("form_profil").addEventListener('submit', function(event) {
+    event.preventDefault();
+    requete();
+  });
