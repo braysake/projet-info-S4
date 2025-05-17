@@ -48,6 +48,7 @@ function verif_information(){
 
 function requete(){
     const formData = new FormData(document.getElementById("form_profil"));
+    localStorage.setItem('requet_update', "-1");
 
     fetch('requet_profil.php', {
       method: 'POST',
@@ -55,8 +56,13 @@ function requete(){
     })
     .then(response => {
       if (!response.ok) {
+        localStorage.setItem('requet_update', "0");
         throw new Error("Erreur HTTP : " + response.status);
       }
+      else{
+        localStorage.setItem('requet_update', "1");
+      }
+
       return response.text();
     })
     .then(data => {

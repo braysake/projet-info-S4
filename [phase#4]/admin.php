@@ -80,13 +80,13 @@ include("variable.php");
 
 					for($i=0; $i<$nbr_per_page && $i+$nbr_per_page*($currentPage-1)<count($tab_inscrit); $i++){
 						echo "
-						<tr>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][2]."</th>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][3]."</th>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][6]."</th>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][4]."</th>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][5]."</th>
-							<th>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][0]."</th>
+						<tr id=".$i.">
+							<th class=a1>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][2]."</th>
+							<th class=a2>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][3]."</th>
+							<th class=a3>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][6]."</th>
+							<th class=a4>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][4]."</th>
+							<th class=a5>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][5]."</th>
+							<th class=a6>".$tab_inscrit[$i+$nbr_per_page*($currentPage-1)][0]."</th>
 						</tr>
 						";
 					}
