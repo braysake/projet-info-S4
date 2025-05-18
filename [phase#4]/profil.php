@@ -155,13 +155,13 @@ if(isset($_POST["bouton_deconnexion"])){
 						}
 					}
 				?>
-
+				<!-- bouton pour accéder au panier -->
 				<form class="panier" action='panier.php' method="post">
 					<p>
 						<input class="btn_form" type="submit" name="panier" value="voir mon panier" />
 					</p>
 				</form>
-
+				<!-- bouton pour se déconecter-->
 				<form class="deconnexion" method="post">
 					<p>
 						<input class="btn_form" type="submit" name="bouton_deconnexion" value="deconnexion" />
@@ -171,6 +171,7 @@ if(isset($_POST["bouton_deconnexion"])){
 		</section>	
 	
 		<?php
+		#bouton pour accéder a la page admin
 		if(isset($_SESSION["admin"]) && $_SESSION["admin"]==1){
 			echo "	<section>
 					<h2>admin menu:</h2>

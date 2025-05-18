@@ -42,11 +42,14 @@ else{
 		$tab_inscrit[$_SESSION["id"]][5]=$_POST["nationalite"];
 	}
 
+	#renvoie les résultat
 	$res="";
 	for($i=0 ; $i<count($tab_inscrit) ;$i++){
 		$res=$res.implode($separateur, $tab_inscrit[$i]);
+		if($_SESSION["id"]==$i){
+			echo implode($separateur, $tab_inscrit[$_SESSION["id"]]);
+		}
 	}
 	file_put_contents($fichier_inscrit, $res);
 }
 ?>
-

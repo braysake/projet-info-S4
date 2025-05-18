@@ -67,8 +67,9 @@ function requete(){
     })
     .then(data => {
       console.log(data);
-
-      document.getElementById('message_profil').innerHTML = data;
+      if(data.includes("<p>")){
+        document.getElementById('message_profil').innerHTML = data;
+      }
     })
     .catch(error => {
       console.error("Erreur avec fetch :"+ error);
