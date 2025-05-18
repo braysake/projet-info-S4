@@ -87,7 +87,7 @@ btn_nationalité.addEventListener("click", () => modif("nationalité"));
 form.forEach(i => i.addEventListener("input",verif_information));
 
 /*requete asynchrone de mise a jour*/
-document.getElementById("form_profil").addEventListener('submit', function(event) {
+document.getElementById("form_profil").addEventListener('submit', function(event){
     event.preventDefault();
     requete();
   });

@@ -36,25 +36,25 @@
                         
                     </p>
                     <p class='description'>
-                        <form method='get' action='resume_paiement.php'>
-                            <input id='act1' type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked onclick='change()'> ".$tabvoyage[5]."<br>
-                            <input id='act2' type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked onclick='change()'> ".$tabvoyage[6]."<br>
-                            <input id='act3' type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked onclick='change()'> ".$tabvoyage[7]."<br>
+                        <form id='form_detail_voyage' method='get' action='resume_paiement.php'>
+                            <input id='act1' type='checkbox' name='activité[]' value='".$tabvoyage[5]."' checked'> ".$tabvoyage[5]."<br>
+                            <input id='act2' type='checkbox' name='activité[]' value='".$tabvoyage[6]."' checked'> ".$tabvoyage[6]."<br>
+                            <input id='act3' type='checkbox' name='activité[]' value='".$tabvoyage[7]."' checked'> ".$tabvoyage[7]."<br>
                             <label for='qualité du voyage'>qualité du voyage</label>
-							<select name='qualité' id='qualité' class='select_form' onchange='change()'>
+							<select name='qualité' id='qualité' class='select_form'>
 								<option value='économique'>économique</option>
 								<option value='moyen' selected>moyen</option>
 								<option value='deluxe'>deluxe</option>
         
 							</select>
-                            <input type='hidden' value='".$prix."' name='montant'>
+                            <input id='montant' type='hidden' value='".$prix."' name='montant'>
                             <input type='hidden' value='".$id."' name='voyage'>
                             <input type='hidden' value='1' name='status'>
                             <input class='btn_form' type='submit' id='bouton_voyage' value='appliquer les filtres' />
                         </form>
                         Prix: <br>
                         <h1 id='prixbase' data-base='".$tabvoyage[3]."'>
-                            ".($prix+300).".00€
+                            ".($prix)."€
                         </h1>
                     <div class='clear'></div>
                 </article>

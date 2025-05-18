@@ -1,4 +1,4 @@
-function change(){
+function requete(){
     let check=new Array();
     let show= document.getElementById("prixbase");
     check.push(document.getElementById("act1").checked);
@@ -7,22 +7,30 @@ function change(){
     let select=document.getElementById("qualité");
     let choice=select.value;
     let prix = parseInt(show.dataset.base);
-    switch (choice){
-        case "économique":
-            prix=prix-prix/2;
-        break;
-        case "moyen":
-            prix=prix;
-        break;
-        case "deluxe":
-            prix=parseInt(prix)+parseInt(prix)/2;
-        break;
-    }
-    console.log(prix);
-    for(let i=0;i<3;i++){
-        if(check[i]===true){
-            prix=parseInt(prix)+100;
-        }
-    }    
-    show.textContent= prix.toFixed(2) +"€";
+
+    const formData = new FormData();
+    formData.append("prix",prix);
+    formData.append("qualité",choice);
+    formData.append("option",check);
+
+    fetch('requet_detail_voyage.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erreur HTTP : " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log(data);
+      show.textContent= data+"€";
+    })
+    .catch(error => {
+      console.error("Erreur avec fetch :"+ error);
+    });
 }
+
+/*requete asynchrone pour mettre a jour le prix*/
+document.querySelectorAll('#form_detail_voyage *').forEach(element => { element.addEventListener('click',requete)});
